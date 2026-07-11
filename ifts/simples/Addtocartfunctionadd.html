@@ -1,0 +1,278 @@
+
+
+You are a professional senior frontend developer and JavaScript debugging expert.
+
+I will provide:
+
+1. My complete service card code
+2. My existing JavaScript
+3. My universal Add to Cart system code
+
+Your task is to intelligently integrate and fix the entire system WITHOUT changing my UI design.
+
+IMPORTANT:
+
+* Different service cards may use different class names.
+* Package cards may not always use the same class.
+* Buttons may have different class names.
+* Selection classes may vary between cards.
+
+You must automatically detect and fix all inconsistencies.
+
+DO NOT:
+
+* Redesign the UI
+* Change CSS styling
+* Change layout structure
+* Change responsiveness
+* Remove existing visual design
+* Break animations or effects
+
+You MAY:
+
+* Fix JavaScript
+* Fix broken selectors
+* Fix onclick functions
+* Fix package selection logic
+* Fix Add to Cart functionality
+* Fix localStorage logic
+* Fix Continue button
+* Merge duplicate functions
+* Optimize code structure
+
+Requirements:
+
+1. Detect package card class automatically.
+2. Detect selected card automatically.
+3. Detect Add to Cart button automatically.
+4. Detect Continue button automatically.
+5. Fix duplicate package detection.
+6. Ensure cart saves correctly in localStorage.
+7. Ensure selected package adds correctly.
+8. Remove unnecessary or broken code.
+9. Keep code universal and reusable.
+10. Keep everything production-ready.
+
+IMPORTANT:
+
+* Do not force fixed class names.
+* Adapt code according to existing HTML structure.
+* Preserve current design exactly.
+
+Return:
+
+* Full corrected JavaScript
+* Only required HTML changes
+* Short explanation
+* Final copy-paste ready code
+
+Here is my full service card code:
+
+[PASTE FULL CODE HERE]
+
+Here is my existing JavaScript:
+
+[PASTE EXISTING JS HERE]
+
+Here is my universal cart system code:
+
+[<script>
+
+/* ========================= */
+/* PACKAGE SELECT */
+/* ========================= */
+
+function selectPkg(card) {
+
+    const cards =
+        document.querySelectorAll('.pkg-col');
+
+    cards.forEach(c => {
+
+        c.classList.remove('selected');
+
+        const radio =
+            c.querySelector('.pkg-col-radio');
+
+        if (radio) {
+
+            radio.style.borderColor = '#aab4cc';
+
+            radio.innerHTML = '';
+
+        }
+
+    });
+
+    card.classList.add('selected');
+
+    const activeRadio =
+        card.querySelector('.pkg-col-radio');
+
+    if (activeRadio) {
+
+        activeRadio.style.borderColor = '#1a2a5e';
+
+        activeRadio.innerHTML = `
+            <span style="
+                width:8px;
+                height:8px;
+                border-radius:50%;
+                background:#1a2a5e;
+                display:block;
+            "></span>
+        `;
+
+    }
+
+}
+
+/* ========================= */
+/* BUTTONS */
+/* ========================= */
+
+const cartBtn =
+    document.querySelector('.btn-cart');
+
+const continueBtn =
+    document.querySelector('.btn-continue');
+
+/* ========================= */
+/* ADD TO CART */
+/* ========================= */
+
+if (cartBtn) {
+
+    cartBtn.addEventListener('click', function () {
+
+        const selectedCard =
+            document.querySelector('.pkg-col.selected');
+
+        if (!selectedCard) {
+
+            alert("Please select a package.");
+
+            return;
+
+        }
+
+        const service = {
+
+            id:
+                selectedCard.dataset.id,
+
+            name:
+                selectedCard.dataset.name,
+
+            pkg:
+                selectedCard.dataset.pkg,
+
+            price:
+                Number(
+                    selectedCard.dataset.price.replace(/,/g, '')
+                )
+
+        };
+
+        let cart = [];
+
+        try {
+
+            cart =
+                JSON.parse(
+                    localStorage.getItem('ifts_cart')
+                ) || [];
+
+        } catch {
+
+            cart = [];
+
+        }
+
+        const alreadyExists =
+            cart.find(item =>
+
+                item.id === service.id &&
+                item.pkg === service.pkg
+
+            );
+
+        if (alreadyExists) {
+
+            alert("Package already added.");
+
+            return;
+
+        }
+
+        cart.push(service);
+
+        localStorage.setItem(
+            'ifts_cart',
+            JSON.stringify(cart)
+        );
+
+        this.classList.add('active');
+
+        this.innerHTML =
+            '<i class="fa-solid fa-check"></i> Added';
+
+        if (continueBtn) {
+
+            continueBtn.classList.remove('disabled');
+
+        }
+
+        console.log(cart);
+
+    });
+
+}
+
+/* ========================= */
+/* CONTINUE BUTTON */
+/* ========================= */
+
+if (continueBtn) {
+
+    continueBtn.addEventListener('click', function () {
+
+        const cart =
+            JSON.parse(
+                localStorage.getItem('ifts_cart')
+            ) || [];
+
+        if (cart.length === 0) {
+
+            alert("Please add package first.");
+
+            return;
+
+        }
+
+        window.location.href =
+            '../checkout.html';
+
+    });
+
+}
+
+/* ========================= */
+/* AUTO INIT FIRST PACKAGE */
+/* ========================= */
+
+window.addEventListener('DOMContentLoaded', () => {
+
+    const firstSelected =
+        document.querySelector('.pkg-col.selected');
+
+    if (firstSelected) {
+
+        selectPkg(firstSelected);
+
+    }
+
+});
+
+
+</script>]

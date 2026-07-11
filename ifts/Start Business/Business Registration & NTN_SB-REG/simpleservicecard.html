@@ -1,0 +1,4320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IFTS – Filer Registration (Individual / Salaried / Pensioner / Freelancer)</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --brand: #00357A;
+      --brand-dark: #00254f;
+      --brand-tint: #eef2f8;
+      --brand-tint-2: #e7edf6;
+      --border: #e2e7f0;
+      --text-dark: #14213d;
+      --text-muted: #5b6577;
+      --teal: #12A596;
+      --teal-tint: #e7f7f4;
+      --gold: #F39C12;
+      --gold-tint: #FFF4DD;
+      --code-badge: #3F67D8;
+      --whatsapp: #25D366;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f7f8fb;
+      color: var(--text-dark);
+      font-size: 14px;
+      min-height: 100vh;
+      padding-bottom: 40px;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    .heading-font {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .container {
+      max-width: 1600px;
+      margin: auto;
+      padding: 0 20px;
+    }
+
+    /* ============ BACK LINK ============ */
+    .back-row {
+      padding: 18px 0 0;
+      margin-bottom: 10px;
+    }
+
+    .back-link {
+      color: var(--brand);
+      font-size: 13.5px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .bottom-info-row {
+      display: flex !important;
+      gap: 24px !important;
+      width: 100% !important;
+    }
+
+    .bottom-info-row>.side-card {
+      flex: 1 !important;
+      width: 50% !important;
+      max-width: 50% !important;
+    }
+
+    .back-link:hover {
+      transform: translateX(-2px);
+      text-decoration: underline;
+    }
+
+    /* ============ HEADER ============ */
+    .header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    /* ── CHANGE 1: Icon box is now its own column with image + badge stacked ── */
+    .service-icon-box {
+      width: 120px;
+      background: var(--brand-tint);
+      border: 2px solid var(--brand-tint-2);
+      border-radius: 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      flex-shrink: 0;
+      position: relative;
+      padding: 10px 8px 12px;
+      gap: 10px;
+    }
+
+    .service-icon-box img {
+      width: 70%;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      border-radius: 6px;
+    }
+
+    /* badge now lives inside the icon box, below the image */
+    .service-icon-box .service-code-badge {
+      margin-bottom: 0;
+    }
+
+    .service-code-badge {
+      display: inline-block;
+      background: var(--code-badge);
+      color: #fff;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      border-radius: 6px;
+      font-size: 9px;
+      padding: 3px 10px;
+      margin-top: -5px;
+    }
+
+    .service-title {
+      font-weight: 900;
+      color: var(--brand);
+      font-size: 27px;
+      line-height: 1.2;
+      margin-bottom: 6px;
+  font-family: 'Montserrat', sans-serif;
+    }
+
+    .service-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      max-width: 620px;
+    }
+
+    /* trust badges */
+    .trust-badges {
+      display: flex;
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #fff;
+      padding: 19px 14px;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .trust-badge {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 0 12px;
+      border-right: 1px solid var(--border);
+    }
+
+    .trust-badge:last-child {
+      border-right: none;
+    }
+
+    .trust-badge-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--teal-tint);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .trust-badge-icon i {
+      color: var(--teal);
+      font-size: 26px;
+    }
+
+    .trust-badge-text {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.3;
+      white-space: nowrap;
+    }
+
+    /* ============ MAIN GRID ============ */
+    .main-grid {
+      display: grid;
+      grid-template-columns: 300px 1.95fr 0.75fr;
+      gap: 16px;
+      margin-top: 24px;
+      align-items: start;
+    }
+
+    /* ============ LEFT SIDEBAR ============ */
+    .side-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 16px 18px;
+      margin-bottom: 16px;
+    }
+
+    .side-card-title {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      margin-bottom: 12px;
+    }
+
+    .side-card-title .icon-circle {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--brand-tint);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .side-card-title .icon-circle i {
+      color: var(--brand);
+      font-size: 11px;
+    }
+
+
+    /* numbered list */
+    .num-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .num-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      font-size: 12px;
+      color: var(--text-dark);
+      line-height: 1.4;
+    }
+
+
+
+    .num-bullet {
+      width: 17px;
+      height: 17px;
+      min-width: 17px;
+      border-radius: 50%;
+      background: var(--brand-tint);
+      color: var(--brand);
+      font-size: 9px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+
+    .view-full-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--brand);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      margin-top: 12px;
+      font-family: 'Poppins', sans-serif;
+      transition: gap 0.15s ease;
+    }
+
+    .view-full-link:hover {
+      gap: 9px;
+    }
+
+    .view-full-link i {
+      font-size: 10px;
+    }
+
+    /* timeline rows */
+    .timeline-rows {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .timeline-row-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 12px;
+    }
+
+    .timeline-row-item .pkg-label {
+      font-weight: 700;
+      color: var(--brand);
+      flex-shrink: 0;
+    }
+
+    .timeline-row-item .pkg-days {
+      color: var(--text-muted);
+      text-align: right;
+      line-height: 1.35;
+    }
+
+    /* important notes */
+    .important-card {
+      border: 1.5px solid var(--gold);
+      background: var(--gold-tint);
+      border-radius: 12px;
+      padding: 14px 14px 16px;
+      margin-bottom: 16px;
+    }
+
+    .important-card .side-card-title {
+      color: var(--gold);
+    }
+
+    .important-card .icon-circle {
+      background: #fde9c8;
+    }
+
+    .important-card .icon-circle i {
+      color: var(--gold);
+    }
+
+    .important-list-summary {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 4px;
+    }
+
+    .important-list-summary li {
+      display: flex;
+      align-items: flex-start;
+      gap: 7px;
+      font-size: 11.5px;
+      color: #8a5a05;
+      line-height: 1.45;
+    }
+
+
+
+
+    /* platform benefits */
+    .platform-benefits-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .benefit-box {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      background: var(--brand-tint);
+      border: 1px solid var(--brand-tint-2);
+      border-radius: 10px;
+      padding: 10px;
+    }
+
+    .benefit-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #fff;
+      border: 1.5px solid var(--brand-tint-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .benefit-icon i {
+      font-size: 17px;
+      color: var(--brand);
+    }
+
+    .benefit-box.whatsapp .benefit-icon i {
+      color: var(--whatsapp);
+    }
+
+    .benefit-title {
+      font-size: 9.5px;
+      font-weight: 700;
+      color: var(--text-dark);
+      letter-spacing: 0.2px;
+      line-height: 1.3;
+      margin-bottom: 2px;
+    }
+
+    .benefit-text {
+      font-size: 9.5px;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+
+    /* ============ MIDDLE PANEL — PACKAGES ============ */
+    .pkg-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      align-items: stretch;
+    }
+
+    .pkg-card {
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      background: #fff;
+      position: relative;
+      transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      min-height: 760px;
+    }
+
+    .pkg-card:hover {
+      box-shadow: 0 10px 26px rgba(0, 53, 122, 0.1);
+      transform: translateY(-3px);
+      border-color: #b9c6dd;
+    }
+
+    .pkg-card.recommended {
+      border-color: var(--brand);
+    }
+
+    .pkg-card.selected {
+      border-color: var(--brand);
+      box-shadow: 0 10px 24px rgba(0, 53, 122, 0.14);
+    }
+
+    .pkg-card.premium .pkg-name {
+      color: var(--gold);
+      background: #FFF9EE;
+    }
+
+    .pkg-card.premium .pkg-icon-circle {
+      background: var(--gold-tint);
+      border-color: #f7d999;
+    }
+
+    .pkg-card.premium .pkg-icon-circle i {
+      color: var(--gold);
+    }
+
+    .premium {
+      background-color: #FFF9EE !important;
+    }
+
+    .recommended {
+      background-color: #F5F8FF !important;
+    }
+
+    .recommended-ribbon {
+      position: absolute;
+      top: -1px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--brand);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      padding: 5px 16px;
+      border-radius: 0 0 8px 8px;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .fee-adjustable-badge {
+      position: absolute;
+      top: -1px;
+      left: 0;
+      right: 0;
+      background: #F39C12;
+      color: white;
+      font-weight: 500;
+      border-radius: 14px 14px 0 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-size: 9px;
+      white-space: nowrap;
+      overflow: hidden;
+      padding: 6px 10px;
+    }
+
+    .pkg-card-body {
+      padding: 26px 20px 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .pkg-card.recommended .pkg-card-body {
+      padding-top: 32px;
+    }
+
+    .pkg-card.premium .pkg-card-body {
+      padding-top: 38px;
+    }
+
+    .pkg-icon-circle {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--brand-tint);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+      border: 1px solid transparent;
+    }
+
+    .pkg-icon-circle i {
+      font-size: 22px;
+      color: var(--brand);
+    }
+
+    .pkg-card.basic .pkg-icon-circle i {
+      color: var(--code-badge);
+    }
+
+    .pkg-name {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--brand);
+      margin-bottom: 4px;
+    }
+
+    .pkg-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .pkg-price {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--brand);
+      line-height: 1;
+      margin-bottom: 3px;
+    }
+
+    .pkg-card.premium .pkg-price {
+      color: var(--gold);
+    }
+
+    .pkg-price-note {
+      font-size: 11.5px;
+      color: var(--text-muted);
+    }
+
+    .pkg-card-section {
+      width: 100%;
+      padding: 0 20px;
+      margin-bottom: 14px;
+    }
+
+    .pkg-card-section+.pkg-card-section {
+      padding-top: 14px;
+      border-top: 1px solid #eef1fb;
+    }
+
+    .pkg-card-section-label {
+      font-size: 10.5px;
+      font-weight: 700;
+      color: var(--text-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      margin-bottom: 8px;
+      text-align: left;
+    }
+
+    .pkg-bullet-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      text-align: left;
+    }
+
+    .pkg-bullet-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 7px;
+      font-size: 11.5px;
+      color: var(--text-dark);
+      line-height: 1.4;
+    }
+
+    .pkg-bullet-list.dot li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--teal);
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+
+    .pkg-card.premium .pkg-bullet-list.dot li::before {
+      background: var(--gold);
+    }
+
+    .pkg-bullet-list.check li::before {
+      content: '\f00c';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      color: var(--teal);
+      font-size: 10px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .pkg-card.premium .pkg-bullet-list.check li::before {
+      color: var(--gold);
+    }
+
+    .pkg-card-footer {
+      margin-top: auto;
+      padding: 0 20px 20px;
+      width: 100%;
+    }
+
+    .pkg-timeline-block {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-top: 14px;
+      border-top: 1px solid #eef1fb;
+      margin-bottom: 14px;
+    }
+
+    .pkg-timeline-block i {
+      color: var(--brand);
+      font-size: 15px;
+      flex-shrink: 0;
+    }
+
+    .pkg-card.premium .pkg-timeline-block i {
+      color: var(--gold);
+    }
+
+    .pkg-timeline-text-label {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--text-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      margin-bottom: 1px;
+    }
+
+    .pkg-timeline-text-value {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--brand);
+      line-height: 1.3;
+    }
+
+    .pkg-card.premium .pkg-timeline-text-value {
+      color: var(--gold);
+    }
+
+    .pkg-select-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .pkg-radio {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 2px solid #aab4cc;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.2s ease;
+      cursor: pointer;
+    }
+
+    .pkg-radio.checked {
+      border-color: var(--brand);
+    }
+
+    .pkg-radio.checked::after {
+      content: '';
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--brand);
+      display: block;
+    }
+
+    .btn-select-pkg {
+      flex: 1;
+      background: #fff;
+      color: var(--brand);
+      border: 1.5px solid var(--brand);
+      border-radius: 9px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+      font-family: 'Poppins', sans-serif;
+      font-size: 12px;
+      white-space: nowrap;
+      padding: 11px 8px;
+    }
+
+    .btn-select-pkg:hover {
+      background: var(--brand-tint);
+    }
+
+    .btn-select-pkg:active {
+      transform: scale(0.98);
+    }
+
+    .pkg-card.selected .btn-select-pkg {
+      background: var(--brand) !important;
+      color: #fff;
+    }
+
+
+
+    .view-details-toggle {
+      width: 100%;
+      text-align: center;
+      margin-top: 10px;
+      background: none;
+      border: none;
+      color: var(--brand);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 4px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .pkg-card.premium .view-details-toggle {
+      color: var(--gold);
+    }
+
+    .view-details-toggle i {
+      font-size: 10px;
+    }
+
+    /* ============ RIGHT PANEL — FAQ ============ */
+    .faq-panel {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .faq-title {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      margin-bottom: 14px;
+    }
+
+    .faq-title .icon-circle {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--brand-tint);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .faq-title .icon-circle i {
+      color: var(--brand);
+      font-size: 11px;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #eef1fb;
+      cursor: pointer;
+      transition: background 0.15s ease;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-question {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+
+      padding: 13px 4px;
+      color: var(--text-dark);
+      font-size: 11px;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    .faq-text {
+      flex: 1;
+    }
+
+    .faq-num {
+      width: 16px;
+      height: 16px;
+      min-width: 16px;
+      border-radius: 50%;
+      background: var(--brand-tint);
+      color: var(--brand);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 8px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .faq-question i {
+      flex-shrink: 0;
+      font-size: 10px;
+      color: var(--brand);
+      margin-top: 4px;
+      transition: transform 0.25s ease;
+    }
+
+    .faq-item.open .faq-question i {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 0 4px 14px 30px;
+      font-size: 11.5px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    .faq-item.open .faq-answer {
+      display: block;
+      animation: fadeSlideDown 0.25s ease-out;
+    }
+
+    @keyframes fadeSlideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-6px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .view-all-faqs {
+      width: 100%;
+      text-align: center;
+      margin-top: 14px;
+      background: none;
+      border: none;
+      color: var(--brand);
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      padding: 8px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .view-all-faqs:hover {
+      gap: 10px;
+    }
+
+    /* ============ CHANGE 2: BOTTOM INFO ROW (Why Choose + Platform Benefits) ============ */
+    .bottom-info-row {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 25px;
+      align-items: stretch;
+    }
+
+    .bottom-info-row>.side-card {
+      margin-bottom: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+
+
+    /* Why Choose — in bottom row: show items in 2-column grid */
+    .why-choose-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 16px;
+    }
+
+    .why-choose-grid li {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 12px;
+      color: var(--text-dark);
+      line-height: 1.4;
+    }
+    .m-why-choose-grid li {
+      display: flex;
+      align-items:center;
+      
+      gap: 9px;
+      font-size: 12px;
+      color: var(--text-dark);
+      line-height: 1.4;
+    }
+
+    /* Platform Benefits — in bottom row: 4-column grid */
+    .bottom-info-row .platform-benefits-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    /* ============ STICKY BOTTOM BAR ============ */
+    .sticky-bar {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #fff;
+      border-top: 1px solid var(--border);
+      box-shadow: 0 -8px 24px rgba(0, 53, 122, 0.08);
+      z-index: 999;
+      transform: translateY(100%);
+      transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.2, 1);
+    }
+
+    .sticky-bar.visible {
+      transform: translateY(0);
+    }
+
+    .sticky-bar-inner {
+      max-width: 1600px;
+      margin: auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .sticky-cart-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: var(--brand-tint);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .sticky-cart-icon i {
+      color: var(--brand);
+      font-size: 17px;
+    }
+
+    .sticky-cart-status strong {
+      display: block;
+      font-size: 13px;
+      color: var(--text-dark);
+      font-weight: 700;
+    }
+
+    .sticky-cart-status span {
+      font-size: 11.5px;
+      color: var(--text-muted);
+    }
+
+    .sticky-divider {
+      width: 1px;
+      height: 36px;
+      background: var(--border);
+      flex-shrink: 0;
+    }
+
+    .sticky-selected-label {
+      font-size: 10.5px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      margin-bottom: 2px;
+    }
+
+    .sticky-selected-value {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--brand);
+      max-width: 320px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+ 
+
+
+    .sticky-total-block {
+      margin-left: auto;
+      text-align: right;
+    }
+
+    .sticky-total-label {
+      font-size: 10.5px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      margin-bottom: 2px;
+    }
+
+    .sticky-total-value {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--brand);
+    }
+
+    .sticky-actions {
+      display: flex;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .btn-cart,
+    .btn-continue {
+      border: none;
+      border-radius: 9px;
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+      padding: 12px 22px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s ease, transform 0.15s ease;
+      font-family: 'Poppins', sans-serif;
+      white-space: nowrap;
+    }
+
+    .btn-cart {
+      background: #fff;
+      color: var(--brand);
+      border: 1.5px solid var(--brand);
+    }
+
+    .btn-cart:hover {
+      background: var(--brand-tint);
+    }
+
+    .btn-cart.active {
+      background: var(--brand-tint);
+    }
+
+    .btn-continue {
+      background: var(--brand);
+      color: #fff;
+    }
+
+    .btn-continue:hover {
+      background: var(--brand-dark);
+    }
+
+    .btn-continue:active,
+    .btn-cart:active {
+      transform: scale(0.97);
+    }
+
+    .bottom-spacer {
+      height: 0;
+      transition: height 0.35s ease;
+    }
+
+    .bottom-spacer.active {
+      height: 86px;
+    }
+
+    /* ============ MODAL / POPUP ============ */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 33, 61, 0.55);
+      z-index: 1200;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal-box {
+      background: #fff;
+      border-radius: 16px;
+      max-width: 640px;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 26px 28px;
+      position: relative;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+      animation: modalPop 0.25s ease-out;
+    }
+
+    @keyframes modalPop {
+      from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.98);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 22px;
+      right: 24px;
+      background: none;
+      border: none;
+      font-size: 16px;
+      color: var(--text-muted);
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: background 0.2s ease;
+    }
+
+    .modal-close:hover {
+      background: #f1f3f8;
+    }
+
+    .modal-title-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .modal-title-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .modal-title-icon.gold {
+      background: var(--gold-tint);
+      color: var(--gold);
+    }
+
+    .modal-title-icon.blue {
+      background: var(--brand-tint);
+      color: var(--brand);
+    }
+
+    .modal-title-icon i {
+      font-size: 17px;
+    }
+
+    .modal-title {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--text-dark);
+    }
+
+    .modal-notes-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-notes-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 13px;
+      color: var(--text-dark);
+      line-height: 1.5;
+      padding: 13px 0;
+      border-bottom: 1px solid #f1f3f8;
+    }
+
+    .modal-notes-list li:last-child {
+      border-bottom: none;
+    }
+
+ 
+     .note-icon  .num-bullet {
+      width: 17px;
+      height: 17px;
+      min-width: 17px;
+      border-radius: 50%;
+      background: #fde9c8;
+      color: var(--brand);
+      font-size: 9px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+
+    .modal-close-btn {
+      width: 100%;
+      margin-top: 16px;
+      background: var(--brand);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 13px 0;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      transition: background 0.2s ease;
+    }
+
+    .modal-close-btn:hover {
+      background: var(--brand-dark);
+    }
+
+    .modal-why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px 18px;
+    }
+
+    .modal-why-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .modal-why-icon {
+      width: 38px;
+      height: 38px;
+      min-width: 38px;
+      border-radius: 50%;
+      background: var(--brand-tint);
+      color: var(--brand);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+
+    .modal-why-item strong {
+      display: block;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 3px;
+    }
+
+    .modal-why-item span {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    /* ============ DRAWER ============ */
+    .drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 33, 61, 0.45);
+      z-index: 1300;
+      display: none;
+    }
+
+    .drawer-overlay.open {
+      display: block;
+    }
+
+    .drawer-panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 420px;
+      max-width: 92vw;
+      background: #fff;
+      box-shadow: -16px 0 40px rgba(0, 0, 0, 0.18);
+      z-index: 1301;
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .drawer-overlay.open .drawer-panel {
+      transform: translateX(0);
+    }
+
+    .drawer-scroll {
+      flex: 1;
+      overflow-y: auto;
+      padding: 10px 26px 18px;
+    }
+
+    .drawer-close {
+      position: absolute;
+      top: 22px;
+      right: 22px;
+      background: none;
+      border: none;
+      font-size: 16px;
+      color: var(--text-muted);
+      cursor: pointer;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s ease;
+      z-index: 2;
+    }
+
+    .drawer-close:hover {
+      background: #f1f3f8;
+    }
+
+    .drawer-icon-circle {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--brand-tint);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+    }
+
+    .drawer-icon-circle i {
+      font-size: 24px;
+      color: var(--brand);
+    }
+
+    .drawer-panel.premium .drawer-icon-circle {
+      background: var(--gold-tint);
+    }
+
+    .drawer-panel.premium .drawer-icon-circle i {
+      color: var(--gold);
+    }
+
+    .drawer-name {
+      font-size: 21px;
+      font-weight: 800;
+      color: var(--brand);
+      margin-bottom: 3px;
+    }
+
+    .drawer-panel.premium .drawer-name {
+      color: var(--gold);
+    }
+
+    .drawer-sub {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
+    .drawer-price {
+      font-size: 27px;
+      font-weight: 800;
+      color: var(--brand);
+      line-height: 1;
+      margin-bottom: 3px;
+    }
+
+    .drawer-panel.premium .drawer-price {
+      color: var(--gold);
+    }
+
+    .drawer-price-note {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .btn-drawer-select {
+      width: 100%;
+      background: #fff;
+      color: var(--brand);
+      border: 1.5px solid var(--brand);
+      padding: 12px 0;
+      border-radius: 9px;
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-bottom: 22px;
+      font-family: 'Poppins', sans-serif;
+      transition: background 0.2s ease;
+    }
+
+    .btn-drawer-select:hover {
+      background: var(--brand-tint);
+    }
+
+    .drawer-panel.premium .btn-drawer-select {
+      color: var(--gold);
+      border-color: var(--gold);
+    }
+
+    .drawer-panel.premium .btn-drawer-select:hover {
+      background: var(--gold-tint);
+    }
+
+    .drawer-section {
+      margin-bottom: 20px;
+    }
+
+    .drawer-section-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--text-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      margin-bottom: 10px;
+    }
+
+    .drawer-section-label i {
+      font-size: 12px;
+      color: var(--teal);
+    }
+
+    .drawer-section-label.notes i {
+      color: var(--gold);
+    }
+
+    .drawer-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .drawer-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 12.5px;
+      color: var(--text-dark);
+      line-height: 1.4;
+    }
+
+    .drawer-list.check li::before {
+      content: '\f00c';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      color: var(--teal);
+      font-size: 10.5px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .drawer-panel.premium .drawer-list.check li::before {
+      color: var(--gold);
+    }
+
+    .drawer-list-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 14px;
+      list-style: none;
+    }
+
+    .drawer-list-grid li {
+      display: flex;
+      align-items: flex-start;
+      gap: 7px;
+      font-size: 12px;
+      color: var(--text-dark);
+      line-height: 1.4;
+    }
+
+    .drawer-list-grid li::before {
+      content: '•';
+      color: var(--brand);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .drawer-timeline-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .drawer-timeline-row i {
+      font-size: 16px;
+      color: var(--brand);
+    }
+
+    .drawer-panel.premium .drawer-timeline-row i {
+      color: var(--gold);
+    }
+
+    .drawer-timeline-value {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .drawer-notes-list li {
+      font-size: 12px;
+      color: #8a5a05;
+      gap: 7px;
+    }
+
+    .drawer-notes-list li::before {
+      content: '•';
+      font-weight: 700;
+      flex-shrink: 0;
+      color: var(--gold);
+    }
+
+    .drawer-footer {
+      border-top: 1px solid var(--border);
+      padding: 16px 26px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .drawer-total-label {
+      font-size: 10.5px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      margin-bottom: 2px;
+    }
+
+    .drawer-total-value {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--brand);
+    }
+
+    .btn-drawer-cta {
+      background: var(--brand);
+      color: #fff;
+      border: none;
+      border-radius: 9px;
+      padding: 13px 26px;
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      transition: background 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .btn-drawer-cta:hover {
+      background: var(--brand-dark);
+    }
+
+    .drawer-panel.premium .btn-drawer-cta {
+      background: var(--gold);
+    }
+
+    .drawer-panel.premium .btn-drawer-cta:hover {
+      background: #d6850a;
+    }
+
+    /* ============================================================ */
+    /* DESKTOP / MOBILE VISIBILITY                                    */
+    /* ============================================================ */
+    .desktop-only {
+      display: block;
+    }
+
+    .mobile-only {
+      display: none;
+    }
+
+    @media (max-width: 880px) {
+      .desktop-only {
+        display: none !important;
+      }
+
+      .mobile-only {
+        display: block;
+      }
+    }
+
+    /* ============================================================ */
+    /* MOBILE LAYOUT                                                  */
+    /* ============================================================ */
+    .m-wrap {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 0 16px 18px;
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-dark);
+    }
+
+    .m-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0 4px;
+    }
+
+    .m-back-link {
+      color: var(--brand);
+      font-size: 13.5px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .m-top-icons {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      color: var(--text-dark);
+      font-size: 16px;
+    }
+
+    .m-top-icons i {
+      cursor: pointer;
+    }
+
+    .m-header {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 14px;
+      margin-top: 6px;
+    }
+
+    .m-service-icon-box {
+      width: 120px;
+      background: var(--brand-tint);
+      border: 2px solid var(--brand-tint-2);
+      border-radius: 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      flex-shrink: 0;
+      position: relative;
+      padding: 10px 8px 12px;
+      gap: 10px;
+    }
+
+    .m-service-icon-box img {
+      width: 80%;
+      height: 80%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .m-service-code-badge {
+      display: inline-block;
+      background: var(--code-badge);
+      color: #fff;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      padding: 4px 11px;
+      border-radius: 6px;
+      margin-bottom: 6px;
+
+    }
+
+    .m-service-title {
+      font-size: 21px;
+      font-weight: 800;
+      color: var(--brand);
+      line-height: 1.28;
+      margin-bottom: 6px;
+    }
+
+    .m-service-desc {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    .m-trust-badges {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #fff;
+      padding: 12px 8px;
+      margin-top: 14px;
+    }
+
+    .m-trust-badge {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      text-align: left;
+      gap: 8px;
+      flex: 1;
+      border-right: 1px solid var(--border);
+      padding: 0 6px;
+    }
+
+    .m-trust-badge:last-child {
+      border-right: none;
+    }
+
+
+
+    .m-trust-badge-icon i {
+      color: var(--teal);
+      font-size: 16px;
+    }
+
+    .m-trust-badge span {
+      font-size: 9.5px;
+      font-weight: 600;
+      color: var(--text-dark);
+      line-height: 1.25;
+      text-align: left;
+    }
+
+    .m-section-heading {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: var(--text-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      margin: 22px 0 12px;
+    }
+
+    .m-pkg-card {
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      background: #fff;
+      padding: 16px 14px 12px;
+      margin-bottom: 14px;
+      position: relative;
+    }
+
+    .m-pkg-card.recommended {
+      border-color: var(--brand);
+      padding-top: 30px;
+    }
+    .m-pkg-card.premium {
+  padding-top: 30px;
+}
+
+    .m-pkg-card.selected {
+      border-color: var(--brand);
+      box-shadow: 0 6px 18px rgba(0, 53, 122, 0.1);
+    }
+
+    .m-recommended-ribbon {
+      position: absolute;
+      top: -1px;
+      left: 16px;
+      background: var(--brand);
+      color: #fff;
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      padding: 5px 12px;
+      border-radius: 0 0 8px 8px;
+    }
+
+    .m-pkg-top-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .m-pkg-identity {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .m-pkg-icon-circle {
+      width: 42px;
+      height: 42px;
+      min-width: 42px;
+      border-radius: 50%;
+      background: var(--brand-tint);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .m-pkg-icon-circle i {
+      font-size: 17px;
+      color: var(--brand);
+    }
+
+    .m-pkg-card.basic .m-pkg-icon-circle i {
+      color: var(--code-badge);
+    }
+
+    .m-pkg-card.premium .m-pkg-icon-circle {
+      background: var(--gold-tint);
+    }
+
+    .m-pkg-card.premium .m-pkg-icon-circle i {
+      color: var(--gold);
+    }
+
+    .m-pkg-name {
+      font-size: 15.5px;
+      font-weight: 800;
+      color: var(--brand);
+      line-height: 1.2;
+    }
+
+    .m-pkg-card.premium .m-pkg-name {
+      color: var(--gold);
+    }
+
+    .m-pkg-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .m-pkg-price-block {
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .m-pkg-price {
+      font-size: 16.5px;
+      font-weight: 800;
+      color: var(--brand);
+      line-height: 1.2;
+    }
+
+    .m-pkg-card.premium .m-pkg-price {
+      color: var(--gold);
+    }
+
+    .m-pkg-price-note {
+      font-size: 10px;
+      color: var(--text-muted);
+    }
+
+    .m-pkg-radio {
+      width: 19px;
+      height: 19px;
+      border-radius: 50%;
+      border: 2px solid #aab4cc;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 4px;
+      margin-left: auto;
+      cursor: pointer;
+    }
+
+    .m-pkg-radio.checked {
+      border-color: var(--brand);
+    }
+
+    .m-pkg-radio.checked::after {
+      content: '';
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--brand);
+      display: block;
+    }
+
+    .m-pkg-card.premium .m-pkg-radio.checked {
+      border-color: var(--gold);
+    }
+
+    .m-pkg-card.premium .m-pkg-radio.checked::after {
+      background: var(--gold);
+    }
+
+    .m-pkg-meta-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid #eef1fb;
+      flex-wrap: wrap;
+      flex-direction: row;
+    }
+
+    .m-pkg-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .m-pkg-meta-label {
+      font-size: 9.5px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: normal;
+      letter-spacing: 0.3px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .m-pkg-meta-label i {
+      font-size: 10px;
+      color: var(--brand);
+    }
+
+    .m-pkg-card.premium .m-pkg-meta-label i {
+      color: var(--gold);
+    }
+
+    .m-pkg-meta-value {
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--text-dark);
+    }
+
+    .m-view-details-link {
+      margin-left: auto;
+      background: none;
+      border: none;
+      color: var(--brand);
+      font-size: 11.5px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      padding: 0;
+    }
+
+    .m-pkg-card.premium .m-view-details-link {
+      color: var(--gold);
+    }
+
+    .m-view-details-link i {
+      font-size: 9px;
+    }
+
+    .m-accordion {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #fff;
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+
+    .m-accordion.important {
+      border-color: var(--gold);
+      background: var(--gold-tint);
+    }
+
+    .m-accordion-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 16px;
+      cursor: pointer;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--text-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .m-accordion.important .m-accordion-header {
+      color: #8a5a05;
+    }
+
+    .m-accordion-header .icon-circle {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--brand-tint);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .m-accordion.important .icon-circle {
+      background: #fde9c8;
+    }
+
+    .m-accordion-header .icon-circle i {
+      color: var(--brand);
+      font-size: 11px;
+    }
+
+    .m-accordion.important .icon-circle i {
+      color: var(--gold);
+    }
+
+    .m-accordion-header i.chevron {
+      margin-left: auto;
+      transition: transform 0.25s ease;
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+
+    .m-accordion.open .chevron {
+      transform: rotate(180deg);
+    }
+
+    .m-accordion-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .m-accordion.open .m-accordion-body {
+      max-height: 2000px;
+    }
+
+    .m-accordion-body-inner {
+      padding: 4px 16px 16px;
+    }
+
+    .m-accordion-body .num-list,
+    .m-accordion-body .important-list-summary {
+      margin-top: 0;
+    }
+
+    .m-accordion-body .view-full-link {
+      margin-top: 12px;
+    }
+
+    .m-accordion-body .platform-benefits-grid {
+      gap: 8px;
+    }
+
+    .m-faq-section {
+      margin-top: 22px;
+    }
+
+    .m-faq-text {
+      flex: 1;
+    }
+
+    .m-faq-heading-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 4px;
+    }
+
+    .m-faq-heading {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 13.5px;
+      font-weight: 800;
+      color: var(--text-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .m-faq-heading .icon-circle {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--brand-tint);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .m-faq-heading .icon-circle i {
+      color: var(--brand);
+      font-size: 11px;
+    }
+.m-view-all-faqs-link {
+  background: none;
+  border: none;
+  color: var(--brand);
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  margin-top: 12px;
+  width: 100%;
+  padding: 8px;
+  margin-bottom: -20px;
+}
+
+.m-view-all-faqs-link i {
+  font-size: 10px;
+  transition: transform 0.25s ease;
+}
+
+.m-view-all-faqs-link.open i {
+  transform: rotate(180deg);
+}
+
+    .m-faq-item {
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+    }
+
+    .m-faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .m-faq-question {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 10px;
+      padding: 14px 2px;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--text-dark);
+      line-height: 1.4;
+
+    }
+
+    .m-faq-num {
+      flex-shrink: 0;
+      margin-top: 1px;
+      width: 19px;
+      height: 19px;
+      min-width: 19px;
+      border-radius: 50%;
+      background: var(--brand-tint);
+      color: var(--brand);
+      font-size: 9.5px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .m-faq-question i {
+      flex-shrink: 0;
+      font-size: 10px;
+      color: var(--brand);
+      margin-top: 4px;
+      margin-left: auto;
+      transition: transform 0.25s ease;
+    }
+
+    .m-faq-item.open .m-faq-question i {
+      transform: rotate(45deg);
+    }
+
+    .m-faq-answer {
+      display: none;
+      padding: 0 2px 14px 31px;
+      font-size: 11.5px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    .m-faq-item.open .m-faq-answer {
+      display: block;
+    }
+
+    .m-sticky-bar {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #fff;
+      border-top: 1px solid var(--border);
+      box-shadow: 0 -8px 24px rgba(0, 53, 122, 0.08);
+      z-index: 999;
+      padding: 12px 16px;
+      transform: translateY(100%);
+      transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.2, 1);
+    }
+
+    .m-sticky-bar.visible {
+      transform: translateY(0);
+    }
+
+    .m-sticky-row1 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .m-sticky-pkg-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .m-sticky-pkg-info .cart-icon-circle {
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      background: var(--brand-tint);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .m-sticky-pkg-info .cart-icon-circle i {
+      color: var(--brand);
+      font-size: 14px;
+    }
+
+    .m-sticky-pkg-label {
+      font-size: 9.5px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .m-sticky-pkg-value {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--brand);
+    }
+
+    .m-sticky-total-block {
+      text-align: right;
+    }
+
+    .m-sticky-total-label {
+      font-size: 9.5px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .m-sticky-total-value {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--brand);
+    }
+
+    .m-btn-cart {
+      background: #fff;
+      color: var(--brand);
+      border: 1.5px solid var(--brand);
+      border-radius: 9px;
+      padding: 11px 0;
+      font-size: 13px;
+      font-weight: 700;
+      width: 100%;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      margin-bottom: 8px;
+    }
+
+    .m-btn-cart.active {
+      background: var(--brand-tint);
+    }
+
+    .m-btn-continue {
+      background: var(--brand);
+      color: #fff;
+      border: none;
+      border-radius: 9px;
+      padding: 13px 0;
+      font-size: 14px;
+      font-weight: 700;
+      width: 100%;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .m-bottom-spacer {
+      height: 0;
+      transition: height 0.35s ease;
+    }
+
+    .m-bottom-spacer.active {
+      height: 165px;
+    }
+
+    @media (max-width: 880px) {
+      .drawer-panel {
+        top: auto;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        max-width: 100%;
+        max-height: 88vh;
+        border-radius: 20px 20px 0 0;
+        box-shadow: 0 -16px 40px rgba(0, 0, 0, 0.2);
+        transform: translateY(100%);
+      }
+
+      .drawer-overlay.open .drawer-panel {
+        transform: translateY(0);
+      }
+
+      .drawer-close {
+        top: 14px;
+      }
+    }
+
+    .m-drawer-handle {
+      display: flex;
+      justify-content: center;
+      padding: 10px 0 4px;
+      flex-shrink: 0;
+    }
+
+    .m-drawer-handle span {
+      width: 40px;
+      height: 4px;
+      border-radius: 4px;
+      background: #d3dae8;
+      display: block;
+    }
+
+.m-premium-ribbon {
+  position: absolute;
+  top: -1px;
+  left: 16px;
+  background: var(--gold);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  padding: 5px 12px;
+  border-radius: 0 0 8px 8px;
+  white-space: nowrap;
+  
+}
+
+    .btn-select-pkg.standard {
+      flex: 1;
+      background: #F5F8FF;
+      color: var(--brand);
+      border: 1.5px solid var(--brand);
+      border-radius: 9px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+      font-family: 'Poppins', sans-serif;
+      font-size: 12px;
+      white-space: nowrap;
+      padding: 11px 8px;
+    }
+
+    .btn-select-pkg.premium {
+      flex: 1;
+      background: #FFF9EE;
+      color: var(--brand);
+      border: 1.5px solid var(--brand);
+      border-radius: 9px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+      font-family: 'Poppins', sans-serif;
+      font-size: 12px;
+      white-space: nowrap;
+      padding: 11px 8px;
+    }
+
+
+    .why-choose-grid li .icon-circle {
+      width: 28px;
+      height: 28px;
+      min-width: 28px;
+      border-radius: 50%;
+      background: var(--brand-tint);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .why-choose-grid li .icon-circle i {
+      color: var(--brand);
+      font-size: 12px;
+    }
+
+    .m-why-choose-grid li .icon-circle {
+      width: 28px;
+      height: 28px;
+      min-width: 28px;
+      border-radius: 50%;
+      background: var(--brand-tint);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .m-why-choose-grid li .icon-circle i {
+      color: var(--brand);
+      font-size: 12px;
+    }
+
+    .m-faq-text {
+      flex: 1;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container desktop-only">
+
+    <!-- BACK LINK -->
+    <div class="back-row">
+      <a href="../../startbusiness.php#BUSINESS-REGISTRATION-&-NTN" class="back-link">
+        <i class="fa-solid fa-arrow-left"></i> Back to Tax &amp; Filing Services
+      </a>
+    </div>
+
+    <!-- HEADER -->
+    <div class="header-row">
+      <div class="header-left">
+
+        <!-- CHANGE 1: Icon box now contains image on top + badge below -->
+        <div class="service-icon-box">
+          <img src="../../images/SB-FIL-001.png" alt="Filer Registration">
+          <div class="service-code-badge">SB-FLR-001</div>
+        </div>
+
+        <div>
+          <h1 class="service-title">Filer Registration </h1>
+          <p style="color:#14213d ;   font-family: 'Montserrat', sans-serif;
+  font-weight: 500;">Individual / Salaried / Pensioner / Freelancer</p>
+          <p class="service-desc">Complete Filer Registration, Income Tax & NTN services for individuals, salaried
+            employees, pensioners, and freelancers. Includes ATL activation and expert compliance support.</p>
+        </div>
+      </div>
+
+      <div class="trust-badges">
+        <div class="trust-badge">
+          <div class="trust-badge-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <div class="trust-badge-text">Government<br>Compliant</div>
+        </div>
+        <div class="trust-badge">
+          <div class="trust-badge-icon"><i class="fa-solid fa-headset"></i></div>
+          <div class="trust-badge-text">Expert<br>Support</div>
+        </div>
+        <div class="trust-badge">
+          <div class="trust-badge-icon"><i class="fa-solid fa-lock"></i></div>
+          <div class="trust-badge-text">Secure<br>Process</div>
+        </div>
+        <div class="trust-badge">
+          <div class="trust-badge-icon"><i class="fa-solid fa-bolt"></i></div>
+          <div class="trust-badge-text">Fast<br>Turnaround</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN GRID -->
+    <div class="main-grid">
+
+      <!-- LEFT SIDEBAR — Why Choose & Platform Benefits REMOVED from here -->
+      <div class="left-sidebar">
+
+        <div class="side-card">
+          <div class="side-card-title">
+            <div class="icon-circle"><i class="fa-solid fa-gift"></i></div>
+            What You Get
+          </div>
+          <ul class="num-list">
+            <li><span class="num-bullet">1</span> NTN Registration &amp; Filer Activation</li>
+            <li><span class="num-bullet">2</span> Income Tax Return Filing</li>
+            <li><span class="num-bullet">3</span> ATL Activation Assistance</li>
+            <li><span class="num-bullet">4</span> MFA Linking Support</li>
+            <li><span class="num-bullet">5</span> Taxpayer Profile Setup</li>
+            <li><span class="num-bullet">6</span> Taxpayer Registration Certificate (TRC)</li>
+            <li><span class="num-bullet">7</span> Online NTN Inquiry Profile</li>
+            <li><span class="num-bullet">8</span> Soft &amp; Hard Copy Delivery</li>
+          </ul>
+        </div>
+
+        <div class="side-card">
+          <div class="side-card-title">
+            <div class="icon-circle"><i class="fa-regular fa-clock"></i></div>
+            Service Information
+          </div>
+          <div
+            style="font-size:10.5px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.4px; margin-bottom:10px;">
+            Timeline</div>
+          <div class="timeline-rows">
+            <div class="timeline-row-item">
+              <span class="pkg-label">Basic Package</span>
+              <span class="pkg-days">2 – 4 Working Days</span>
+            </div>
+            <div class="timeline-row-item">
+              <span class="pkg-label">Standard Package</span>
+              <span class="pkg-days">3 – 6 Working Days</span>
+            </div>
+            <div class="timeline-row-item">
+              <span class="pkg-label">Premium Package</span>
+              <span class="pkg-days">Review → </span>
+            </div>
+            <div class="timeline-row-item">
+
+              <span style=" 
+      color: var(--text-muted);
+      text-align:left;
+      font-size: 11px;
+     margin-top: -5px;
+
+    ">Quote → Priority Processing (1 – 2 Working Days)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="important-card">
+          <div class="side-card-title">
+            <div class="icon-circle"><i class="fa-solid fa-triangle-exclamation"></i></div>
+            Important Notes (Summary)
+          </div>
+          <ul class="important-list-summary">
+            <li> <span class="num-bullet" style="  background: #fde9c8;">1</span>Government taxes, ATL surcharges,
+              penalties and official fees are separate.</li>
+            <li><span class="num-bullet" style="  background: #fde9c8;">2</span>ATL activation depends upon FBR
+              processing timelines.</li>
+            <li><span class="num-bullet" style="  background: #fde9c8;">3</span>Complex cases may require Premium
+              Review.</li>
+            <li> <span class="num-bullet" style="  background: #fde9c8;">4</span>Incorrect or incomplete information
+              may delay processing or cause rejection.</li>
+
+          </ul>
+          <button class="view-full-link" onclick="openModal('modal-important-notes')">
+            View Full Details <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- MIDDLE PANEL — PACKAGE CARDS -->
+      <div class="mid-panel">
+        <div class="pkg-grid">
+
+          <!-- BASIC -->
+          <div class="pkg-card basic" data-id="SB-FLR-001-1"
+            data-name="Filer Registration (Individual / Salaried / Pensioner / Freelancer)"
+            data-pkg="Basic — Simple Filer Registration" data-price="6,000" data-timeline="2 – 4 Working Days">
+            <div class="pkg-card-body">
+              <div class="pkg-icon-circle"><i class="fa-solid fa-user"></i></div>
+              <div class="pkg-name">Basic</div>
+              <div class="pkg-sub">Simple Filer Registration</div>
+              <div class="pkg-price">Rs. 6,000</div>
+              <div class="pkg-price-note">Fixed Price</div>
+            </div>
+
+            <div class="pkg-card-section">
+              <div class="pkg-card-section-label">Recommended For</div>
+              <ul class="pkg-bullet-list dot">
+                <li>Salaried Individuals</li>
+                <li>Pensioners</li>
+                <li>Starter Freelancers</li>
+                <li>First-Time Filers</li>
+              </ul>
+            </div>
+
+            <div class="pkg-card-section">
+              <div class="pkg-card-section-label">Includes </div>
+              <ul class="pkg-bullet-list check">
+                <li>NTN Registration</li>
+                <li>Tax Return Filing</li>
+                <li>ATL Activation</li>
+                <li>MFA Support</li>
+                <li>Taxpayer Profile Setup</li>
+                <li>TRC Certificate</li>
+                <li>Compliance Guidance</li>
+              </ul>
+            </div>
+
+            <div class="pkg-card-footer">
+              <div class="pkg-timeline-block">
+                <i class="fa-regular fa-clock"></i>
+                <div>
+                  <div class="pkg-timeline-text-label">Service Timeline</div>
+                  <div class="pkg-timeline-text-value">2 – 4 Working Days</div>
+                </div>
+              </div>
+              <div class="pkg-select-row">
+                <div class="pkg-radio" onclick="selectPkg(this.closest('.pkg-card'))"></div>
+                <button class="btn-select-pkg" onclick="selectPkg(this.closest('.pkg-card'))">Select Package</button>
+              </div>
+              <button class="view-details-toggle" onclick="openDrawer(this.closest('.pkg-card'))">
+                View Full Details <i class="fa-solid fa-chevron-down"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- STANDARD -->
+          <div class="pkg-card recommended" data-id="SB-FLR-001-2"
+            data-name="Filer Registration (Individual / Salaried / Pensioner / Freelancer)"
+            data-pkg="Standard — Advanced Filer Registration" data-price="10,000" data-timeline="3 – 6 Working Days">
+            <div class="recommended-ribbon"><i class="fa-solid fa-star" style="font-size:9px;"></i> Recommended</div>
+            <div class="pkg-card-body">
+              <div class="pkg-icon-circle"><i class="fa-solid fa-briefcase"></i></div>
+              <div class="pkg-name">Standard</div>
+              <div class="pkg-sub" style=" font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;">Advanced Filer Registration</div>
+              <div class="pkg-price" style="margin-top: -4px;">Rs. 10,000</div>
+              <div class="pkg-price-note">Fixed Price</div>
+            </div>
+
+            <div class="pkg-card-section">
+              <div class="pkg-card-section-label">Recommended For</div>
+              <ul class="pkg-bullet-list dot">
+                <li>Salaried Professionals</li>
+                <li>Experienced Freelancers</li>
+                <li>Asset Holders</li>
+                <li>Remittance Cases</li>
+              </ul>
+            </div>
+
+            <div class="pkg-card-section">
+              <div class="pkg-card-section-label">Includes </div>
+              <ul class="pkg-bullet-list check">
+                <li>Everything in Basic</li>
+                <li>Wealth Statement</li>
+                <li>Asset Review</li>
+                <li>Vehicle Declaration</li>
+                <li>Property Guidance</li>
+                <li>Remittance Review</li>
+                <li>Priority Processing</li>
+              </ul>
+            </div>
+
+            <div class="pkg-card-footer">
+              <div class="pkg-timeline-block">
+                <i class="fa-regular fa-clock"></i>
+                <div>
+                  <div class="pkg-timeline-text-label">Service Timeline</div>
+                  <div class="pkg-timeline-text-value">3 – 6 Working Days</div>
+                </div>
+              </div>
+              <div class="pkg-select-row">
+                <div class="pkg-radio checked" onclick="selectPkg(this.closest('.pkg-card'))"></div>
+                <button class="btn-select-pkg standard" onclick="selectPkg(this.closest('.pkg-card'))">Select
+                  Package</button>
+              </div>
+              <button class="view-details-toggle" onclick="openDrawer(this.closest('.pkg-card'))">
+                View Full Details <i class="fa-solid fa-chevron-down"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- PREMIUM -->
+          <div class="pkg-card premium" data-id="SB-FLR-001-3"
+            data-name="Filer Registration (Individual / Salaried / Pensioner / Freelancer)"
+            data-pkg="Premium — Expert Filer Review" data-price="15,000"
+            data-timeline="Review → Quote → Priority Processing (1 – 2 Working Days)">
+            <div class="fee-adjustable-badge">Fee Adjustable Against Final Service Fee</div>
+            <div class="pkg-card-body">
+              <div class="pkg-icon-circle"><i class="fa-solid fa-crown"></i></div>
+              <div class="pkg-name">Premium</div>
+              <div class="pkg-sub">Expert Filer Review</div>
+              <div class="pkg-price" style="margin-top: -7px; font-size:26px;">Rs. 15,000</div>
+              <div class="pkg-price-note">Initial Review Fee</div>
+            </div>
+
+            <div class="pkg-card-section">
+              <div class="pkg-card-section-label">Recommended For</div>
+              <ul class="pkg-bullet-list dot">
+                <li>Complex Tax Matters</li>
+                <li>Multiple Assets</li>
+                <li>FBR Notices</li>
+                <li>Foreign Income Cases</li>
+              </ul>
+            </div>
+
+            <div class="pkg-card-section">
+              <div class="pkg-card-section-label">Includes</div>
+              <ul class="pkg-bullet-list check">
+                <li>Everything in Standard</li>
+                <li>Expert Case Review</li>
+                <li>FBR Notice Assessment</li>
+                <li>Foreign Asset Review</li>
+                <li>Risk Assessment</li>
+                <li>Filing Strategy</li>
+                <li>Dedicated Expert Support</li>
+              </ul>
+            </div>
+
+            <div class="pkg-card-footer">
+              <div class="pkg-timeline-block">
+                <i class="fa-regular fa-clock"></i>
+                <div>
+                  <div class="pkg-timeline-text-label">Service Timeline</div>
+                  <div class="pkg-timeline-text-value">Review → Quote → Priority Processing (1 – 2 Working Days)</div>
+                </div>
+              </div>
+              <div class="pkg-select-row">
+                <div class="pkg-radio" onclick="selectPkg(this.closest('.pkg-card'))"></div>
+                <button class="btn-select-pkg premium" onclick="selectPkg(this.closest('.pkg-card'))">Select
+                  Package</button>
+              </div>
+              <button class="view-details-toggle" onclick="openDrawer(this.closest('.pkg-card'))">
+                View Full Details <i class="fa-solid fa-chevron-down"></i>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- RIGHT PANEL — FAQ -->
+      <div class="right-panel">
+        <div class="faq-panel">
+          <div class="faq-title">
+            <div class="icon-circle"><i class="fa-regular fa-circle-question"></i></div>
+            Frequently Asked Questions
+          </div>
+          <div id="faq-list">
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+              <div class="faq-question">
+                <span class="faq-num">1</span>
+                <span>What is Filer Registration in
+                  Pakistan? </span><i class="fa-solid fa-plus"></i>
+              </div>
+
+              <div class="faq-answer">Filer Registration is the process of becoming an Active Taxpayer in Pakistan by
+                obtaining an NTN, filing an Income Tax Return with FBR, and becoming eligible for inclusion in the
+                Active Taxpayer List (ATL).</div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+              <div class="faq-question"><span class="faq-num">2</span><span>What is the Active Taxpayer List
+                  (ATL)?</span><i class="fa-solid fa-plus"></i></div>
+              <div class="faq-answer">The ATL is an official list maintained by FBR that contains the names of taxpayers
+                who have filed their income tax returns and qualify for reduced withholding tax rates in Pakistan.</div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+              <div class="faq-question"><span class="faq-num">3</span><span>Is NTN Registration included in this
+                  service?</span><i class="fa-solid fa-plus"></i></div>
+              <div class="faq-answer">Yes. NTN Registration is included where required. If you do not already have an
+                NTN, IFTS will assist you in obtaining one before proceeding with filer registration.</div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+              <div class="faq-question"><span class="faq-num">4</span><span>Is ATL Activation included in this
+                  service?</span><i class="fa-solid fa-plus"></i></div>
+              <div class="faq-answer">Yes. ATL Activation assistance is included in all packages. IFTS guides clients
+                through the process required to become an active filer with FBR.</div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+              <div class="faq-question"><span class="faq-num">5</span><span>Can freelancers register as filers in
+                  Pakistan?</span><i class="fa-solid fa-plus"></i></div>
+              <div class="faq-answer">Yes. Freelancers, online service providers, remote workers, and digital
+                professionals can apply for Filer Registration and become compliant taxpayers in Pakistan.</div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+              <div class="faq-question"><span class="faq-num">6</span><span>Is MFA linking included?</span><i
+                  class="fa-solid fa-plus"></i></div>
+              <div class="faq-answer">Yes. MFA (Multi-Factor Authentication) linking support is included to help clients
+                maintain secure access to their FBR IRIS account and future tax compliance.</div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+              <div class="faq-question"><span class="faq-num">7</span><span>What is the difference between Basic and
+                  Standard packages?</span><i class="fa-solid fa-plus"></i></div>
+              <div class="faq-answer">Basic is designed for individuals with simple tax profiles, while Standard
+                includes wealth statement preparation, asset review, vehicle declaration support, property guidance, and
+                foreign remittance review.</div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+              <div class="faq-question"><span class="faq-num">8</span><span>Can I declare property in the Basic
+                  package?</span><i class="fa-solid fa-plus"></i></div>
+              <div class="faq-answer">No. Property declaration and related wealth statement matters are handled under
+                the Standard or Premium Package depending on complexity.</div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+              <div class="faq-question"><span class="faq-num">9</span><span>Are government penalties included?</span><i
+                  class="fa-solid fa-plus"></i></div>
+              <div class="faq-answer">No. Government taxes, FBR penalties, ATL surcharges, and any official charges are
+                separate unless specifically mentioned in writing.</div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+              <div class="faq-question"><span class="faq-num">10</span><span>Will I receive the Taxpayer Registration
+                  Certificate?</span><i class="fa-solid fa-plus"></i></div>
+              <div class="faq-answer">Yes. Clients receive the official FBR Taxpayer Registration Certificate (TRC)
+                along with related registration and filing documents.</div>
+            </div>
+
+            <div class="faq-overflow" style="display:none;">
+
+              <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question"><span class="faq-num">11</span><span>How long does filer registration
+                    take?</span><i class="fa-solid fa-plus"></i></div>
+                <div class="faq-answer">Normally, Filer Registration takes between 2 to 6 working days depending on the
+                  selected package, document completion, and complexity of the case.</div>
+              </div>
+
+              <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question"><span class="faq-num">12</span><span>Is hard copy delivery available?</span><i
+                    class="fa-solid fa-plus"></i></div>
+                <div class="faq-answer">Yes. Digital documents are delivered via WhatsApp and email, while hard copy
+                  delivery may also be available where applicable.</div>
+              </div>
+
+              <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question"><span class="faq-num">13</span><span>Will my information remain
+                    confidential?</span><i class="fa-solid fa-plus"></i></div>
+                <div class="faq-answer">Yes. All client information, tax records, financial details, and supporting
+                  documents are handled through a secure and confidential workflow.</div>
+              </div>
+
+              <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question"><span class="faq-num">14</span><span>Can overseas remittances be
+                    handled?</span><i class="fa-solid fa-plus"></i></div>
+                <div class="faq-answer">Yes. Overseas remittances can be reviewed and properly reported under the
+                  Standard and Premium packages.</div>
+              </div>
+
+              <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question"><span class="faq-num">15</span><span>Is business registration
+                    included?</span><i class="fa-solid fa-plus"></i></div>
+                <div class="faq-answer">No. Business NTN Registration is a separate service. This service is designed
+                  specifically for Individual, Salaried, Pensioner, and Freelancer Filer Registration.</div>
+              </div>
+
+              <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question"><span class="faq-num">16</span><span>What happens if my case becomes
+                    complex?</span><i class="fa-solid fa-plus"></i></div>
+                <div class="faq-answer">If your case involves multiple properties, foreign assets, extensive banking
+                  transactions, or advanced tax matters, IFTS may recommend the Premium Package for detailed review and
+                  compliance support.</div>
+              </div>
+
+              <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question"><span class="faq-num">17</span><span>Why is the Premium package priced at Rs.
+                    15,000?</span><i class="fa-solid fa-plus"></i></div>
+                <div class="faq-answer">The Rs. 15,000 amount is an Initial Expert Review Fee for complex tax matters.
+                  It covers professional assessment, compliance review, and case evaluation before a final quotation is
+                  issued.</div>
+              </div>
+
+              <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question"><span class="faq-num">18</span><span>Will the Rs. 15,000 be adjusted
+                    later?</span><i class="fa-solid fa-plus"></i></div>
+                <div class="faq-answer">Yes. If you proceed with IFTS after receiving the final quotation, the Rs.
+                  15,000 Initial Review Fee is adjusted against your final service invoice.</div>
+              </div>
+
+              <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question"><span class="faq-num">19</span><span>Can I submit FBR notices under
+                    Premium?</span><i class="fa-solid fa-plus"></i></div>
+                <div class="faq-answer">Yes. The Premium Package includes professional review of FBR notices, compliance
+                  notices, and other tax-related correspondence where applicable.</div>
+              </div>
+
+              <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question"><span class="faq-num">20</span><span>Can foreign assets and income be
+                    reviewed?</span><i class="fa-solid fa-plus"></i></div>
+                <div class="faq-answer">Yes. Foreign assets, foreign income, overseas investments, and international
+                  financial matters can be reviewed under the Premium Package.</div>
+              </div>
+
+              <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question"><span class="faq-num">21</span><span>Is there a fixed final price in
+                    Premium?</span><i class="fa-solid fa-plus"></i></div>
+                <div class="faq-answer">No. The final service fee depends on case complexity, number of assets,
+                  compliance requirements, and the level of professional work required after review.</div>
+              </div>
+
+              <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question"><span class="faq-num">22</span><span>What if I do not proceed after Premium
+                    review?</span><i class="fa-solid fa-plus"></i></div>
+                <div class="faq-answer">The Initial Expert Review Fee is non-refundable because professional review,
+                  assessment, and recommendations have already been provided by IFTS experts.</div>
+              </div>
+
+              <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question"><span class="faq-num">23</span><span>Will I receive a quotation before
+                    filing?</span><i class="fa-solid fa-plus"></i></div>
+                <div class="faq-answer">Yes. A detailed quotation is issued after the expert review process. No filing
+                  or compliance work begins until the quotation is approved by the client.</div>
+              </div>
+
+              <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question"><span class="faq-num">24</span><span>Is Priority Processing included in
+                    Premium?</span><i class="fa-solid fa-plus"></i></div>
+                <div class="faq-answer">Yes. After the expert review is completed and the final quotation is accepted,
+                  the case is processed on priority and typically completed within 1–2 working days.</div>
+              </div>
+
+              <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question"><span class="faq-num">25</span><span>Who should choose Premium?</span><i
+                    class="fa-solid fa-plus"></i></div>
+                <div class="faq-answer">The Premium Package is ideal for taxpayers with multiple properties, foreign
+                  assets, foreign income, high-value transactions, FBR notices, complex wealth statements, compliance
+                  risks, or advanced tax advisory requirements.</div>
+              </div>
+
+            </div>
+
+          </div>
+          <button class="view-all-faqs" id="view-all-faqs-btn" onclick="toggleAllFaqs()">
+            View All FAQs <i class="fa-solid fa-chevron-down"></i>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CHANGE 2: Why Choose IFTS + Platform Benefits — Full-width bottom row (50/50) -->
+    <div class="bottom-info-row desktop-only">
+
+      <!-- Why Choose IFTS -->
+      <div class="side-card" style="margin-bottom:0;">
+        <div class="side-card-title">
+          <div class="icon-circle">
+            <i class="fa-solid fa-people-group"></i>
+          </div>
+          Why Choose IFTS?
+        </div>
+
+        <ul class="num-list why-choose-grid">
+
+          <li>
+            <div class="icon-circle">
+              <i class="fa-solid fa-user-tie"></i>
+            </div>
+            Experienced Industry Professionals
+          </li>
+
+          <li>
+            <div class="icon-circle">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            Compliance-Focused Service Delivery
+          </li>
+
+          <li>
+            <div class="icon-circle">
+              <i class="fa-solid fa-landmark"></i>
+            </div>
+            Government &amp; Regulatory Knowledge
+          </li>
+
+          <li>
+            <div class="icon-circle">
+              <i class="fa-solid fa-lock"></i>
+            </div>
+            Secure &amp; Confidential Workflow
+          </li>
+
+          <li>
+            <div class="icon-circle">
+              <i class="fa-solid fa-bolt"></i>
+            </div>
+            Fast Turnaround &amp; Timely Updates
+          </li>
+
+          <li>
+            <div class="icon-circle">
+              <i class="fa-solid fa-gears"></i>
+            </div>
+            Standardized Service Processes
+          </li>
+
+          <li>
+            <div class="icon-circle">
+              <i class="fa-solid fa-headset"></i>
+            </div>
+            Dedicated Client Support
+          </li>
+
+          <li>
+            <div class="icon-circle">
+              <i class="fa-solid fa-building"></i>
+            </div>
+            Business Infrastructure Platform
+          </li>
+
+        </ul>
+      </div>
+
+      <!-- Platform Benefits -->
+      <div class="side-card" style="margin-bottom:0;">
+        <div class="side-card-title">
+          <div class="icon-circle"><i class="fa-solid fa-layer-group"></i></div>
+          Platform Benefits
+        </div>
+        <div class="platform-benefits-grid">
+          <div class="benefit-box">
+            <div class="benefit-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <div>
+              <div class="benefit-title">SECURE CLIENT PORTAL</div>
+              <div class="benefit-text">Access services, forms, documents and updates anytime.</div>
+            </div>
+          </div>
+          <div class="benefit-box">
+            <div class="benefit-icon"><i class="fa-solid fa-gauge-high"></i></div>
+            <div>
+              <div class="benefit-title">SERVICE TRACKING DASHBOARD</div>
+              <div class="benefit-text">Track progress and service status in real-time.</div>
+            </div>
+          </div>
+          <div class="benefit-box whatsapp">
+            <div class="benefit-icon"><i class="fa-brands fa-whatsapp"></i></div>
+            <div>
+              <div class="benefit-title">WHATSAPP UPDATES</div>
+              <div class="benefit-text">Receive automated alerts and important notifications.</div>
+            </div>
+          </div>
+          <div class="benefit-box">
+            <div class="benefit-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+            <div>
+              <div class="benefit-title">DIGITAL DOCUMENT VAULT</div>
+              <div class="benefit-text">Upload and manage service documents securely online.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- MOBILE LAYOUT                                                  -->
+  <!-- ============================================================ -->
+  <div class="m-wrap mobile-only">
+
+    <div class="m-top-row">
+      <a href="../../startbusiness.php#BUSINESS-REGISTRATION-&-NTN" class="m-back-link">
+        <i class="fa-solid fa-arrow-left"></i> Back to Tax &amp; Filing Services
+      </a>
+    </div>
+
+    <div class="m-header">
+      <div class="m-service-icon-box">
+        <img src="../../images/SB-FIL-001.png" alt="Filer Registration">
+        <div class="m-service-code-badge">SB-FLR-001</div>
+
+      </div>
+      <div>
+        <h1 class="m-service-title">Filer Registration </h1>
+        <p style="  font-size: 10px;
+      font-weight: 500;
+      color: var(--brand);
+      
+      margin-bottom: 4px;">Individual / Salaried / Pensioner / Freelancer</p>
+        <p class="m-service-desc">Complete Filer Registration, Income Tax & NTN services for individuals, salaried
+          employees, pensioners, and freelancers. Includes ATL activation and expert compliance support.</p>
+      </div>
+    </div>
+
+
+    <div class="m-trust-badges">
+      <div class="m-trust-badge">
+        <div class="m-trust-badge-icon"><i class="fa-solid fa-shield-halved"></i></div>
+        <span>Government Compliant</span>
+      </div>
+      <div class="m-trust-badge">
+        <div class="m-trust-badge-icon"><i class="fa-solid fa-headset"></i></div>
+        <span>Expert Support</span>
+      </div>
+      <div class="m-trust-badge">
+        <div class="m-trust-badge-icon"><i class="fa-solid fa-lock"></i></div>
+        <span>Secure Process</span>
+      </div>
+      <div class="m-trust-badge">
+        <div class="m-trust-badge-icon"><i class="fa-solid fa-bolt"></i></div>
+        <span>Fast Turnaround</span>
+      </div>
+    </div>
+
+    <div class="m-section-heading">Choose Your Package</div>
+
+    <!-- BASIC -->
+   <div class="m-pkg-card basic" data-id="SB-FLR-001-1"
+  data-name="Filer Registration (Individual / Salaried / Pensioner / Freelancer)"
+  data-pkg="Basic — Simple Filer Registration" data-price="6,000" data-timeline="2 – 4 Working Days">
+      <div class="m-pkg-top-row">
+        <div class="m-pkg-identity">
+          <div class="m-pkg-icon-circle"><i class="fa-solid fa-user"></i></div>
+          <div>
+            <div class="m-pkg-name">Basic</div>
+            <div class="m-pkg-sub">Simple Filer Registration</div>
+          </div>
+        </div>
+        <div class="m-pkg-price-block">
+          <div class="m-pkg-price">Rs. 6,000</div>
+          <div class="m-pkg-price-note">Fixed Price</div>
+        </div>
+      </div>
+      <div class="m-pkg-meta-row">
+        <div class="m-pkg-meta-item">
+          <div class="m-pkg-meta-label"><i class="fa-solid fa-people-group"></i> Recommended For</div>
+          <div class="m-pkg-meta-value">
+            <p> Salaried Individuals • Pensioners • Starter Freelancers • First-Time Filers
+            </p>
+          </div>
+        </div>
+
+      </div>
+      <div class="m-pkg-meta-row">
+
+        <div class="m-pkg-meta-item">
+          <div class="m-pkg-meta-label"><i class="fa-regular fa-clock"></i> Timeline</div>
+          <div class="m-pkg-meta-value">2 – 4 Working Days</div>
+        </div>
+        <div style="display: flex;justify-content: space-between;gap: 10px;">
+          <button class="m-view-details-link" onclick="openDrawer(this.closest('.m-pkg-card'))">
+            View Details <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="m-pkg-radio " onclick="selectPkgMobile(this.closest('.m-pkg-card'))">
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STANDARD -->
+<div class="m-pkg-card recommended" data-id="SB-FLR-001-2"
+  data-name="Filer Registration (Individual / Salaried / Pensioner / Freelancer)"
+  data-pkg="Standard — Advanced Filer Registration" data-price="10,000" data-timeline="3 – 6 Working Days">
+      <div class="m-recommended-ribbon">RECOMMENDED</div>
+      <div class="m-pkg-top-row">
+        <div class="m-pkg-identity">
+          <div class="m-pkg-icon-circle"><i class="fa-solid fa-briefcase"></i></div>
+          <div>
+            <div class="m-pkg-name">Standard</div>
+            <div class="m-pkg-sub">Advanced Filer Registration</div>
+          </div>
+        </div>
+        <div class="m-pkg-price-block">
+          <div class="m-pkg-price">Rs. 10,000</div>
+          <div class="m-pkg-price-note">Fixed Price</div>
+        </div>
+      </div>
+      <div class="m-pkg-meta-row">
+        <div class="m-pkg-meta-item">
+          <div class="m-pkg-meta-label"><i class="fa-solid fa-people-group"></i> Recommended For</div>
+          <div class="m-pkg-meta-value">
+            <p> Salaried Professionals • Experienced Freelancers • Asset Holders • Remittance Cases
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="m-pkg-meta-row">
+
+        <div class="m-pkg-meta-item">
+          <div class="m-pkg-meta-label"><i class="fa-regular fa-clock"></i> Timeline</div>
+          <div class="m-pkg-meta-value">3 – 6 Working Days</div>
+        </div>
+        <div style="display: flex;justify-content: space-between;gap: 10px;">
+          <button class="m-view-details-link" onclick="openDrawer(this.closest('.m-pkg-card'))">
+            View Details <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="m-pkg-radio checked" onclick="selectPkgMobile(this.closest('.m-pkg-card'))">
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- PREMIUM -->
+   <div class="m-pkg-card premium" data-id="SB-FLR-001-3"
+  data-name="Filer Registration (Individual / Salaried / Pensioner / Freelancer)"
+  data-pkg="Premium — Expert Filer Review" data-price="15,000" data-timeline="Review → Quote → Priority Processing (1 – 2 Working Days)">
+       <div class="m-premium-ribbon">FEE ADJUSTABLE AGAINST FINAL FEE</div>
+
+      <div class="m-pkg-top-row">
+
+        <div class="m-pkg-identity">
+          <div class="m-pkg-icon-circle"><i class="fa-solid fa-crown"></i></div>
+          <div>
+            <div class="m-pkg-name">Premium</div>
+            <div class="m-pkg-sub">Expert Filer Review</div>
+          </div>
+        </div>
+        <div class="m-pkg-price-block">
+          <div class="m-pkg-price">Rs. 15,000</div>
+          <div class="m-pkg-price-note">Initial Review Fee</div>
+        </div>
+      </div>
+      <div class="m-pkg-meta-row">
+        <div class="m-pkg-meta-item">
+          <div class="m-pkg-meta-label"><i class="fa-solid fa-people-group"></i> Recommended For</div>
+          <div class="m-pkg-meta-value">
+            <p> Complex Tax Matters • Multiple Assets • FBR Notices • Foreign Income Cases
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+      <div class="m-pkg-meta-row">
+
+        <div class="m-pkg-meta-item">
+          <div class="m-pkg-meta-label"><i class="fa-regular fa-clock"></i> Timeline</div>
+          <div class="m-pkg-meta-value">Review → Quote → Priority (1 – 2 Days)</div>
+        </div>
+        <div style="display: flex;justify-content: space-between;gap: 10px;">
+          <button class="m-view-details-link" onclick="openDrawer(this.closest('.m-pkg-card'))">
+            View Details <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="m-pkg-radio" onclick="selectPkgMobile(this.closest('.m-pkg-card'))">
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACCORDIONS -->
+    <div class="m-accordion" id="m-acc-what-you-get">
+      <div class="m-accordion-header" onclick="toggleMobileAccordion('m-acc-what-you-get')">
+        <div class="icon-circle"><i class="fa-solid fa-gift"></i></div>
+        What You Get
+        <i class="fa-solid fa-chevron-down chevron"></i>
+      </div>
+      <div class="m-accordion-body">
+        <div class="m-accordion-body-inner">
+          <ul class="num-list">
+            <li><span class="num-bullet">1</span> NTN Registration &amp; Filer Activation</li>
+            <li><span class="num-bullet">2</span> Income Tax Return Filing</li>
+            <li><span class="num-bullet">3</span> ATL Activation Assistance</li>
+            <li><span class="num-bullet">4</span> MFA Linking Support</li>
+            <li><span class="num-bullet">5</span> Taxpayer Profile Setup</li>
+            <li><span class="num-bullet">6</span> Taxpayer Registration Certificate (TRC)</li>
+            <li><span class="num-bullet">7</span> Online NTN Inquiry Profile</li>
+            <li><span class="num-bullet">8</span> Soft &amp; Hard Copy Delivery</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="m-accordion" id="m-acc-service-info">
+      <div class="m-accordion-header" onclick="toggleMobileAccordion('m-acc-service-info')">
+        <div class="icon-circle"><i class="fa-regular fa-clock"></i></div>
+        Service Information
+        <i class="fa-solid fa-chevron-down chevron"></i>
+      </div>
+      <div class="m-accordion-body">
+        <div class="m-accordion-body-inner">
+          <div
+            style="font-size:10.5px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.4px; margin-bottom:10px;">
+            Timeline</div>
+          <div class="timeline-rows">
+            <div class="timeline-row-item">
+              <span class="pkg-label">Basic Package</span>
+              <span class="pkg-days">2 – 4 Working Days</span>
+            </div>
+            <div class="timeline-row-item">
+              <span class="pkg-label">Standard Package</span>
+              <span class="pkg-days">3 – 6 Working Days</span>
+            </div>
+            <div class="timeline-row-item">
+              <span class="pkg-label">Premium Package</span>
+              <span class="pkg-days">Review → Quote →</span>
+
+            </div>
+            <div class="timeline-row-item">
+             
+              <span class="pkg-days" >  Priority Processing (1 – 2 Working Days)</span>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="m-accordion" id="m-acc-platform-benefits">
+      <div class="m-accordion-header" onclick="toggleMobileAccordion('m-acc-platform-benefits')">
+        <div class="icon-circle"><i class="fa-solid fa-layer-group"></i></div>
+        Platform Benefits
+        <i class="fa-solid fa-chevron-down chevron"></i>
+      </div>
+      <div class="m-accordion-body">
+        <div class="m-accordion-body-inner">
+          <div class="platform-benefits-grid">
+            <div class="benefit-box">
+              <div class="benefit-icon"><i class="fa-solid fa-shield-halved"></i></div>
+              <div>
+                <div class="benefit-title">SECURE CLIENT PORTAL</div>
+                <div class="benefit-text">Access services, forms, documents and updates anytime.</div>
+              </div>
+            </div>
+            <div class="benefit-box">
+              <div class="benefit-icon"><i class="fa-solid fa-gauge-high"></i></div>
+              <div>
+                <div class="benefit-title">SERVICE TRACKING DASHBOARD</div>
+                <div class="benefit-text">Track progress and service status in real-time.</div>
+              </div>
+            </div>
+            <div class="benefit-box whatsapp">
+              <div class="benefit-icon"><i class="fa-brands fa-whatsapp"></i></div>
+              <div>
+                <div class="benefit-title">WHATSAPP UPDATES</div>
+                <div class="benefit-text">Receive automated alerts and important notifications.</div>
+              </div>
+            </div>
+            <div class="benefit-box">
+              <div class="benefit-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+              <div>
+                <div class="benefit-title">DIGITAL DOCUMENT VAULT</div>
+                <div class="benefit-text">Upload and manage service documents securely online.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+    <div class="m-accordion" id="m-acc-why-choose">
+      <div class="m-accordion-header" onclick="toggleMobileAccordion('m-acc-why-choose')">
+        <div class="icon-circle"><i class="fa-solid fa-people-group"></i></div>
+        Why Choose IFTS?
+        <i class="fa-solid fa-chevron-down chevron"></i>
+      </div>
+      <div class="m-accordion-body">
+        <div class="m-accordion-body-inner">
+          <ul class="num-list m-why-choose-grid">
+            <li>
+              <div class="icon-circle">
+                <i class="fa-solid fa-user-tie"></i>
+              </div>
+              Experienced Industry Professionals
+            </li>
+
+            <li>
+              <div class="icon-circle">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              Compliance-Focused Service Delivery
+            </li>
+
+            <li>
+              <div class="icon-circle">
+                <i class="fa-solid fa-landmark"></i>
+              </div>
+              Government &amp; Regulatory Knowledge
+            </li>
+
+            <li>
+              <div class="icon-circle">
+                <i class="fa-solid fa-lock"></i>
+              </div>
+              Secure &amp; Confidential Workflow
+            </li>
+
+            <li>
+              <div class="icon-circle">
+                <i class="fa-solid fa-bolt"></i>
+              </div>
+              Fast Turnaround &amp; Timely Updates
+            </li>
+
+            <li>
+              <div class="icon-circle">
+                <i class="fa-solid fa-gears"></i>
+              </div>
+              Standardized Service Processes
+            </li>
+
+            <li>
+              <div class="icon-circle">
+                <i class="fa-solid fa-headset"></i>
+              </div>
+              Dedicated Client Support
+            </li>
+
+            <li>
+              <div class="icon-circle">
+                <i class="fa-solid fa-building"></i>
+              </div>
+              Business Infrastructure Platform
+            </li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="m-accordion important" id="m-acc-important-notes">
+      <div class="m-accordion-header" onclick="toggleMobileAccordion('m-acc-important-notes')">
+        <div class="icon-circle"><i class="fa-solid fa-triangle-exclamation"></i></div>
+        Important Notes
+        <i class="fa-solid fa-chevron-down chevron"></i>
+      </div>
+      <div class="m-accordion-body">
+        <div class="m-accordion-body-inner">
+          <ul class="important-list-summary">
+
+
+            <li><span class="note-icon"><span class="num-bullet">1</span></span> Government taxes, ATL surcharges,
+              penalties and official fees are separate from our service charges. </li>
+            <li><span class="note-icon"><span class="num-bullet">2</span></span> ATL activation depends upon FBR
+              processing timelines and is not in our control.</li>
+            <li><span class="note-icon"><span class="num-bullet">3</span></span> Incorrect or incomplete
+              information
+              may delay processing or cause rejection.</li>
+            <li><span class="note-icon"><span class="num-bullet">4</span></span> Client is responsible for
+              providing
+              accurate information and valid documents.</li>
+            <li><span class="note-icon"><span class="num-bullet">5</span></span> FBR may require additional
+              documents
+              or verification at their discretion.</li>
+            <li><span class="note-icon"><span class="num-bullet">6</span></span> Complex cases, FBR notices or
+              high-risk profiles may require Premium Review.</li>
+            <li><span class="note-icon"><span class="num-bullet">7</span></span> Service timeline may vary
+              depending
+              on case complexity and workload.</li>
+            <li><span class="note-icon"><span class="num-bullet">8</span></span> We do not guarantee acceptance or
+              approval as final decision is by relevant authorities.</li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- MOBILE FAQ -->
+    <div class="m-faq-section">
+      <div class="m-faq-heading-row">
+        <div class="m-faq-heading">
+          <div class="icon-circle"><i class="fa-regular fa-circle-question"></i></div>
+          Frequently Asked Questions
+        </div>
+
+      </div>
+
+
+
+
+
+      <div id="m-faq-list">
+        <div class="m-faq-item" onclick="toggleFaqMobile(this)">
+          <div class="m-faq-question">
+            <span class="m-faq-num">1</span>
+            <span>What is Filer Registration in
+              Pakistan?</span><i class="fa-solid fa-plus"></i>
+          </div>
+          <div class="m-faq-answer">Filer Registration is the process of becoming an Active Taxpayer in Pakistan by
+            obtaining an NTN, filing an Income Tax Return with FBR, and becoming eligible for inclusion in the Active
+            Taxpayer List (ATL).</div>
+        </div>
+        <div class="m-faq-item" onclick="toggleFaqMobile(this)">
+          <div class="m-faq-question"><span class="m-faq-num">2</span><span>What is the Active Taxpayer List
+              (ATL)?</span><i class="fa-solid fa-plus"></i></div>
+          <div class="m-faq-answer">The ATL is an official list maintained by FBR that contains the names of taxpayers
+            who have filed their income tax returns and qualify for reduced withholding tax rates in Pakistan.</div>
+        </div>
+        <div class="m-faq-item" onclick="toggleFaqMobile(this)">
+          <div class="m-faq-question"><span class="m-faq-num">3</span><span>Is NTN Registration included in this
+              service?</span><i class="fa-solid fa-plus"></i></div>
+          <div class="m-faq-answer">Yes. NTN Registration is included where required. If you do not already have an
+            NTN,
+            IFTS will assist you in obtaining one before proceeding with filer registration.</div>
+        </div>
+        <div class="m-faq-item" onclick="toggleFaqMobile(this)">
+          <div class="m-faq-question"><span class="m-faq-num">4</span><span>Is ATL Activation included in this
+              service?</span><i class="fa-solid fa-plus"></i></div>
+          <div class="m-faq-answer">Yes. ATL Activation assistance is included in all packages. IFTS guides clients
+            through the process required to become an active filer with FBR.</div>
+        </div>
+        <div class="m-faq-item" onclick="toggleFaqMobile(this)">
+          <div class="m-faq-question"><span class="m-faq-num">5</span><span>Can freelancers register as filers in
+              Pakistan?</span><i class="fa-solid fa-plus"></i></div>
+          <div class="m-faq-answer">Yes. Freelancers, online service providers, remote workers, and digital
+            professionals can apply for Filer Registration and become compliant taxpayers in Pakistan.</div>
+        </div>
+
+        <div class="m-faq-overflow" style="display:none;">
+          <div class="m-faq-item" onclick="toggleFaqMobile(this)">
+            <div class="m-faq-question"><span class="m-faq-num">6</span><span>Is MFA linking included?</span><i
+                class="fa-solid fa-plus"></i></div>
+            <div class="m-faq-answer">Yes. MFA (Multi-Factor Authentication) linking support is included to help
+              clients
+              maintain secure access to their FBR IRIS account and future tax compliance.</div>
+          </div>
+          <div class="m-faq-item" onclick="toggleFaqMobile(this)">
+            <div class="m-faq-question"><span class="m-faq-num">7</span><span>What is the difference between Basic and
+                Standard packages?</span><i class="fa-solid fa-plus"></i></div>
+            <div class="m-faq-answer">Basic is designed for individuals with simple tax profiles, while Standard
+              includes wealth statement preparation, asset review, vehicle declaration support, property guidance, and
+              foreign remittance review.</div>
+          </div>
+          <div class="m-faq-item" onclick="toggleFaqMobile(this)">
+            <div class="m-faq-question"><span class="m-faq-num">8</span><span>Can I declare property in the Basic
+                package?</span><i class="fa-solid fa-plus"></i></div>
+            <div class="m-faq-answer">No. Property declaration and related wealth statement matters are handled under
+              the Standard or Premium Package depending on complexity.</div>
+          </div>
+          <div class="m-faq-item" onclick="toggleFaqMobile(this)">
+            <div class="m-faq-question"><span class="m-faq-num">9</span><span>Are government penalties
+                included?</span><i class="fa-solid fa-plus"></i></div>
+            <div class="m-faq-answer">No. Government taxes, FBR penalties, ATL surcharges, and any official charges
+              are
+              separate unless specifically mentioned in writing.</div>
+          </div>
+          <div class="m-faq-item" onclick="toggleFaqMobile(this)">
+            <div class="m-faq-question"><span class="m-faq-num">10</span><span>Will I receive the Taxpayer
+                Registration
+                Certificate?</span><i class="fa-solid fa-plus"></i></div>
+            <div class="m-faq-answer">Yes. Clients receive the official FBR Taxpayer Registration Certificate (TRC)
+              along with related registration and filing documents.</div>
+          </div>
+          <div class="m-faq-item" onclick="toggleFaqMobile(this)">
+            <div class="m-faq-question"><span class="m-faq-num">11</span><span>How long does filer registration
+                take?</span><i class="fa-solid fa-plus"></i></div>
+            <div class="m-faq-answer">Normally, Filer Registration takes between 2 to 6 working days depending on the
+              selected package, document completion, and complexity of the case.</div>
+          </div>
+          <div class="m-faq-item" onclick="toggleFaqMobile(this)">
+            <div class="m-faq-question"><span class="m-faq-num">12</span><span>Is hard copy delivery
+                available?</span><i class="fa-solid fa-plus"></i></div>
+            <div class="m-faq-answer">Yes. Digital documents are delivered via WhatsApp and email, while hard copy
+              delivery may also be available where applicable.</div>
+          </div>
+          <div class="m-faq-item" onclick="toggleFaqMobile(this)">
+            <div class="m-faq-question"><span class="m-faq-num">13</span><span>Will my information remain
+                confidential?</span><i class="fa-solid fa-plus"></i></div>
+            <div class="m-faq-answer">Yes. All client information, tax records, financial details, and supporting
+              documents are handled through a secure and confidential workflow.</div>
+          </div>
+          <div class="m-faq-item" onclick="toggleFaqMobile(this)">
+            <div class="m-faq-question"> <span class="m-faq-num">14</span><span>Can overseas remittances be
+                handled?</span><i class="fa-solid fa-plus"></i></div>
+            <div class="m-faq-answer">Yes. Overseas remittances can be reviewed and properly reported under the
+              Standard
+              and Premium packages.</div>
+          </div>
+          <div class="m-faq-item" onclick="toggleFaqMobile(this)">
+            <div class="m-faq-question"><span class="m-faq-num">15</span><span>Is business registration
+                included?</span><i class="fa-solid fa-plus"></i></div>
+            <div class="m-faq-answer">No. Business NTN Registration is a separate service. This service is designed
+              specifically for Individual, Salaried, Pensioner, and Freelancer Filer Registration.</div>
+          </div>
+          <div class="m-faq-item" onclick="toggleFaqMobile(this)">
+            <div class="m-faq-question"><span class="m-faq-num">16</span><span>What happens if my case becomes
+                complex?</span><i class="fa-solid fa-plus"></i></div>
+            <div class="m-faq-answer">If your case involves multiple properties, foreign assets, extensive banking
+              transactions, or advanced tax matters, IFTS may recommend the Premium Package for detailed review and
+              compliance support.</div>
+          </div>
+          <div class="m-faq-item" onclick="toggleFaqMobile(this)">
+            <div class="m-faq-question"><span class="m-faq-num">17</span><span>Why is the Premium package priced at
+                Rs.
+                15,000?</span><i class="fa-solid fa-plus"></i></div>
+            <div class="m-faq-answer">The Rs. 15,000 amount is an Initial Expert Review Fee for complex tax matters.
+              It
+              covers professional assessment, compliance review, and case evaluation before a final quotation is
+              issued.
+            </div>
+          </div>
+          <div class="m-faq-item" onclick="toggleFaqMobile(this)">
+            <div class="m-faq-question"><span class="m-faq-num">18</span><span>Will the Rs. 15,000 be adjusted
+                later?</span><i class="fa-solid fa-plus"></i></div>
+            <div class="m-faq-answer">Yes. If you proceed with IFTS after receiving the final quotation, the Rs.
+              15,000
+              Initial Review Fee is adjusted against your final service invoice.</div>
+          </div>
+          <div class="m-faq-item" onclick="toggleFaqMobile(this)">
+            <div class="m-faq-question"><span class="m-faq-num">19</span><span>Can I submit FBR notices under
+                Premium?</span><i class="fa-solid fa-plus"></i></div>
+            <div class="m-faq-answer">Yes. The Premium Package includes professional review of FBR notices, compliance
+              notices, and other tax-related correspondence where applicable.</div>
+          </div>
+          <div class="m-faq-item" onclick="toggleFaqMobile(this)">
+            <div class="m-faq-question"><span class="m-faq-num">20</span><span>Can foreign assets and income be
+                reviewed?</span><i class="fa-solid fa-plus"></i></div>
+            <div class="m-faq-answer">Yes. Foreign assets, foreign income, overseas investments, and international
+              financial matters can be reviewed under the Premium Package.</div>
+          </div>
+          <div class="m-faq-item" onclick="toggleFaqMobile(this)">
+            <div class="m-faq-question"><span class="m-faq-num">21</span><span>Is there a fixed final price in
+                Premium?</span><i class="fa-solid fa-plus"></i></div>
+            <div class="m-faq-answer">No. The final service fee depends on case complexity, number of assets,
+              compliance
+              requirements, and the level of professional work required after review.</div>
+          </div>
+          <div class="m-faq-item" onclick="toggleFaqMobile(this)">
+            <div class="m-faq-question"><span class="m-faq-num">22</span><span>What if I do not proceed after Premium
+                review?</span><i class="fa-solid fa-plus"></i></div>
+            <div class="m-faq-answer">The Initial Expert Review Fee is non-refundable because professional review,
+              assessment, and recommendations have already been provided by IFTS experts.</div>
+          </div>
+          <div class="m-faq-item" onclick="toggleFaqMobile(this)">
+            <div class="m-faq-question"><span class="m-faq-num">23</span><span>Will I receive a quotation before
+                filing?</span><i class="fa-solid fa-plus"></i></div>
+            <div class="m-faq-answer">Yes. A detailed quotation is issued after the expert review process. No filing
+              or
+              compliance work begins until the quotation is approved by the client.</div>
+          </div>
+          <div class="m-faq-item" onclick="toggleFaqMobile(this)">
+            <div class="m-faq-question"><span class="m-faq-num">24</span><span>Is Priority Processing included in
+                Premium?</span><i class="fa-solid fa-plus"></i></div>
+            <div class="m-faq-answer">Yes. After the expert review is completed and the final quotation is accepted,
+              the
+              case is processed on priority and typically completed within 1–2 working days.</div>
+          </div>
+          <div class="m-faq-item" onclick="toggleFaqMobile(this)">
+            <div class="m-faq-question"><span class="m-faq-num">25</span><span>Who should choose Premium?</span><i
+                class="fa-solid fa-plus"></i></div>
+            <div class="m-faq-answer">The Premium Package is ideal for taxpayers with multiple properties, foreign
+              assets, foreign income, high-value transactions, FBR notices, complex wealth statements, compliance
+              risks,
+              or advanced tax advisory requirements.</div>
+          </div>
+
+        </div>
+      </div>
+     <button class="m-view-all-faqs-link" id="m-view-all-faqs-btn" onclick="toggleAllFaqsMobile()">
+  <span id="m-view-all-faqs-text">View All FAQs</span>
+  <i class="fa-solid fa-chevron-down" id="m-view-all-faqs-icon"></i>
+</button>
+    </div>
+
+  </div>
+  <!-- ============================================================ -->
+  <!-- END MOBILE LAYOUT                                              -->
+  <!-- ============================================================ -->
+
+  <div class="bottom-spacer desktop-only" id="bottom-spacer"></div>
+  <div class="m-bottom-spacer mobile-only" id="m-bottom-spacer"></div>
+
+  <!-- STICKY BOTTOM BAR (DESKTOP) -->
+  <div class="sticky-bar desktop-only" id="sticky-bar">
+    <div class="sticky-bar-inner">
+      <div class="sticky-cart-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+      <div class="sticky-cart-status">
+        <strong id="cart-count-label">No Package Selected</strong>
+        <span id="cart-count-sub">Please select a package to continue.</span>
+      </div>
+
+      <div class="sticky-divider"></div>
+
+   <div>
+  <div class="sticky-selected-label">Selected Package(s)</div>
+  <div class="sticky-selected-value" id="selected-pkg-value">—</div>
+</div>
+
+      <div class="sticky-total-block">
+        <div class="sticky-total-label">Total Amount</div>
+        <div class="sticky-total-value" id="sticky-total">Rs. 0</div>
+      </div>
+
+      <div class="sticky-actions">
+        <button class="btn-cart" id="btn-cart">
+          <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+        </button>
+        <button class="btn-continue" id="btn-continue">
+          Continue <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STICKY BOTTOM BAR (MOBILE) -->
+  <div class="m-sticky-bar mobile-only" id="m-sticky-bar">
+    <div class="m-sticky-row1">
+      <div class="m-sticky-pkg-info">
+        <div class="cart-icon-circle"><i class="fa-solid fa-cart-shopping"></i></div>
+    <div>
+  <div class="m-sticky-pkg-label" id="m-cart-count-label">Selected Package</div>
+  <div class="m-sticky-pkg-value" id="m-selected-pkg-value">—</div>
+</div>
+      </div>
+      <div class="m-sticky-total-block">
+        <div class="m-sticky-total-label">Total Amount</div>
+        <div class="m-sticky-total-value" id="m-sticky-total">Rs. 0</div>
+      </div>
+    </div>
+    <button class="m-btn-cart" id="m-btn-cart">
+      <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+    </button>
+    <button class="m-btn-continue" id="m-btn-continue">
+      Continue <i class="fa-solid fa-arrow-right"></i>
+    </button>
+  </div>
+
+  <!-- ============ MODAL: IMPORTANT NOTES ============ -->
+  <div class="modal-overlay" id="modal-important-notes" onclick="closeModalOnOverlay(event, 'modal-important-notes')">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('modal-important-notes')"><i
+          class="fa-solid fa-xmark"></i></button>
+      <div class="modal-title-row">
+        <div class="modal-title-icon gold"><i class="fa-solid fa-triangle-exclamation"></i></div>
+        <div class="modal-title">Important Notes &amp; Limitations</div>
+      </div>
+      <ul class="modal-notes-list">
+        <li><span class="num-bullet" style="  background: #fde9c8;">1</span> Government taxes, ATL surcharges,
+          penalties and official fees are separate from our service charges.</li>
+        <li><span class="num-bullet" style="  background: #fde9c8;">2</span> ATL activation depends upon FBR
+          processing timelines and is not in our control.</li>
+        <li><span class="num-bullet" style="  background: #fde9c8;">3</span> Incorrect or incomplete information
+          may delay processing or cause rejection.</li>
+        <li><span class="num-bullet" style="  background: #fde9c8;">4</span> Client is responsible for providing
+          accurate information and valid documents.</li>
+        <li><span class="num-bullet" style="  background: #fde9c8;">5</span> FBR may require additional
+          documents
+          or verification at their discretion.</li>
+        <li><span class="num-bullet" style="  background: #fde9c8;">6</span> Complex cases, FBR notices or
+          high-risk profiles may require Premium Review.</li>
+        <li><span class="num-bullet" style="  background: #fde9c8;">7</span> Service timeline may vary depending
+          on case complexity and workload.</li>
+        <li><span class="num-bullet" style="  background: #fde9c8;">8</span> We do not guarantee acceptance or
+          approval as final decision is by relevant authorities.</li>
+      </ul>
+      <button class="modal-close-btn" onclick="closeModal('modal-important-notes')">Close</button>
+    </div>
+  </div>
+
+  <!-- ============ MODAL: WHY CHOOSE IFTS ============ -->
+  <div class="modal-overlay" id="modal-why-choose" onclick="closeModalOnOverlay(event, 'modal-why-choose')">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('modal-why-choose')"><i class="fa-solid fa-xmark"></i></button>
+      <div class="modal-title-row">
+        <div class="modal-title-icon blue"><i class="fa-solid fa-shield"></i></div>
+        <div class="modal-title">Why Choose IFTS?</div>
+      </div>
+      <div class="modal-why-grid">
+        <div class="modal-why-item">
+          <div class="modal-why-icon"><i class="fa-solid fa-people-group"></i></div>
+          <div><strong>1. Experienced Industry Professionals</strong><span>Our team brings years of practical
+              experience
+              in taxation, compliance and business services.</span></div>
+        </div>
+        <div class="modal-why-item">
+          <div class="modal-why-icon"><i class="fa-regular fa-file-lines"></i></div>
+          <div><strong>2. Compliance-Focused Service Delivery</strong><span>Every service is designed to ensure
+              accuracy, compliance and hassle-free experience.</span></div>
+        </div>
+        <div class="modal-why-item">
+          <div class="modal-why-icon"><i class="fa-solid fa-landmark"></i></div>
+          <div><strong>3. Government &amp; Regulatory Knowledge</strong><span>In-depth understanding of FBR, SECP and
+              other regulatory frameworks.</span></div>
+        </div>
+        <div class="modal-why-item">
+          <div class="modal-why-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <div><strong>4. Secure &amp; Confidential Workflow</strong><span>Your data and documents are handled with
+              highest security and confidentiality.</span></div>
+        </div>
+        <div class="modal-why-item">
+          <div class="modal-why-icon"><i class="fa-solid fa-bolt"></i></div>
+          <div><strong>5. Fast Turnaround &amp; Timely Updates</strong><span>We value your time and ensure quick
+              processing with regular updates.</span></div>
+        </div>
+        <div class="modal-why-item">
+          <div class="modal-why-icon"><i class="fa-regular fa-file-lines"></i></div>
+          <div><strong>6. Standardized Service Processes</strong><span>Proven processes, checklists and quality checks
+              for consistent results.</span></div>
+        </div>
+        <div class="modal-why-item">
+          <div class="modal-why-icon"><i class="fa-solid fa-headset"></i></div>
+          <div><strong>7. Dedicated Client Support</strong><span>Personalized support via WhatsApp, email and phone
+              throughout your journey.</span></div>
+        </div>
+        <div class="modal-why-item">
+          <div class="modal-why-icon"><i class="fa-solid fa-layer-group"></i></div>
+          <div><strong>8. Business Infrastructure Platform</strong><span>IFTS is more than a service provider — we
+              build
+              your business infrastructure.</span></div>
+        </div>
+      </div>
+      <button class="modal-close-btn" onclick="closeModal('modal-why-choose')">Close</button>
+    </div>
+  </div>
+
+  <!-- ============ DRAWER: PACKAGE FULL DETAILS ============ -->
+  <div class="drawer-overlay" id="drawer-overlay" onclick="closeDrawerOnOverlay(event)">
+    <div class="drawer-panel" id="drawer-panel">
+      <div class="m-drawer-handle mobile-only"><span></span></div>
+      <button class="drawer-close" onclick="closeDrawer()"><i class="fa-solid fa-xmark"></i></button>
+      <div class="drawer-scroll" id="drawer-content">
+        <!-- populated dynamically by JS -->
+      </div>
+      <div class="drawer-footer">
+        <div>
+          <div class="drawer-total-label">Total Price</div>
+          <div class="drawer-total-value" id="drawer-total-price">Rs. 0</div>
+        </div>
+        <button class="btn-drawer-cta" id="drawer-cta-btn">Select Package</button>
+      </div>
+    </div>
+  </div>
+  </div>
+  <script>
+    /* ========================= */
+    /* PACKAGE DATA               */
+    /* ========================= */
+    var packageData = {
+      "SB-FLR-001-1": {
+        icon: "fa-solid fa-user",
+        name: "Basic Package",
+        sub: "Simple Filer Registration",
+        price: "Rs. 6,000",
+        priceNote: "Fixed Price",
+        premium: false,
+        recommendedFor: ["Salaried Individuals", "Pensioners", "Starter Freelancers", "First-Time Filers"],
+        includes: ["NTN Registration", "Tax Return Filing", "ATL Activation", "MFA Support", "Taxpayer Profile Setup", "TRC Certificate", "Compliance Guidance", "Online NTN Inquiry Profile", "Soft & Hard Copy Delivery", "Basic Support"],
+        requirements: ["CNIC Copy", "Mobile Number", "Email Address", "Latest Electricity Bill", "Bank Statement", "Income Details"],
+        timeline: "2 – 4 Working Days",
+        notes: ["Government taxes, ATL surcharges, penalties and official fees are separate.", "ATL activation depends upon FBR processing timelines.", "Incorrect or incomplete information may delay processing."]
+      },
+      "SB-FLR-001-2": {
+        icon: "fa-solid fa-briefcase",
+        name: "Standard Package",
+        sub: "Advanced Filer Registration",
+        price: "Rs. 10,000",
+        priceNote: "Fixed Price",
+        premium: false,
+        recommendedFor: ["Salaried Professionals", "Experienced Freelancers", "Asset Holders", "Remittance Cases"],
+        includes: ["Everything in Basic", "Wealth Statement", "Asset Review", "Vehicle Declaration", "Property Guidance", "Remittance Review", "Priority Processing", "Banking Activity Review", "Enhanced Compliance Guidance"],
+        requirements: ["Everything in Basic Requirements", "Asset Details", "Vehicle Details (if applicable)", "Property Details (if applicable)", "Additional Banking Information"],
+        timeline: "3 – 6 Working Days",
+        notes: ["Government taxes, ATL surcharges, penalties and official fees are separate.", "Property declaration limited to a single property under Standard.", "Complex cases may require Premium Review."]
+      },
+      "SB-FLR-001-3": {
+        icon: "fa-solid fa-crown",
+        name: "Premium Package",
+        sub: "Expert Filer Review",
+        price: "Rs. 15,000",
+        priceNote: "Initial Review Fee",
+        premium: true,
+        recommendedFor: ["Complex Tax Matters", "Multiple Assets", "FBR Notices", "Foreign Income Cases"],
+        includes: ["Everything in Standard", "Expert Case Review", "FBR Notice Assessment", "Foreign Asset Review", "Risk Assessment", "Filing Strategy", "Dedicated Expert Support", "Final Service Quotation After Review"],
+        requirements: ["Everything in Standard Requirements", "Complete Asset Portfolio Details", "Property & Vehicle Documentation", "Foreign Income/Asset Details (if applicable)", "FBR Notice Copies (if applicable)"],
+        timeline: "Review → Quote → Priority Processing (1 – 2 Working Days)",
+        notes: ["Rs. 15,000 is an Initial Expert Review Fee — not the final service price.", "A custom quote is issued after professional case review.", "Review fee is adjusted against the final invoice if you proceed with IFTS."]
+      }
+    };
+
+    /* ========================= */
+    /* ACTIVE PACKAGE             */
+    /* ========================= */
+    var activePkg = null;
+
+    /* ========================= */
+    /* PACKAGE SELECTION          */
+    /* ========================= */
+    function selectPkg(card) {
+      if (!card) return;
+
+      var id = card.dataset.id;
+
+      document.querySelectorAll('.pkg-card').forEach(function (c) {
+        c.classList.remove('selected');
+        var r = c.querySelector('.pkg-radio');
+        if (r) r.classList.remove('checked');
+        var b = c.querySelector('.btn-select-pkg');
+        if (b) b.textContent = 'Select Package';
+      });
+
+      document.querySelectorAll('.m-pkg-card').forEach(function (c) {
+        c.classList.remove('selected');
+        var r = c.querySelector('.m-pkg-radio');
+        if (r) r.classList.remove('checked');
+      });
+
+      document.querySelectorAll('[data-id="' + id + '"]').forEach(function (c) {
+        c.classList.add('selected');
+        var dr = c.querySelector('.pkg-radio');
+        if (dr) dr.classList.add('checked');
+        var mr = c.querySelector('.m-pkg-radio');
+        if (mr) mr.classList.add('checked');
+        var b = c.querySelector('.btn-select-pkg');
+        if (b) b.textContent = 'Selected ✓';
+      });
+
+      activePkg = card;
+
+      updateStickyDisplay();
+
+      var cb = document.getElementById('btn-cart');
+      if (cb) { cb.classList.remove('active'); cb.innerHTML = '<i class="fa-solid fa-cart-shopping"></i> Add to Cart'; }
+      var mcb = document.getElementById('m-btn-cart');
+      if (mcb) { mcb.classList.remove('active'); mcb.innerHTML = '<i class="fa-solid fa-cart-shopping"></i> Add to Cart'; }
+
+      showStickyBar();
+    }
+
+    function selectPkgMobile(card) {
+      selectPkg(card);
+    }
+
+    /* ========================= */
+    /* STICKY BAR UPDATE          */
+    /* ========================= */
+ function updateStickyDisplay() {
+  var label = document.getElementById('cart-count-label');
+  var sub = document.getElementById('cart-count-sub');
+  var pkgValue = document.getElementById('selected-pkg-value');
+  var totalVal = document.getElementById('sticky-total');
+  var mLabel = document.getElementById('m-cart-count-label');
+  var mPkgValue = document.getElementById('m-selected-pkg-value');
+  var mTotal = document.getElementById('m-sticky-total');
+
+  if (!activePkg) {
+    if (label) label.textContent = 'No Package Selected';
+    if (sub) sub.textContent = 'Please select a package to continue.';
+    if (pkgValue) pkgValue.textContent = '—';
+    if (totalVal) totalVal.textContent = 'Rs. 0';
+    if (mLabel) mLabel.textContent = 'No Package Selected';
+    if (mPkgValue) mPkgValue.textContent = '—';
+    if (mTotal) mTotal.textContent = 'Rs. 0';
+    return;
+  }
+
+  var pkgName = (activePkg.dataset.pkg || '').split('—')[0].trim();
+  var priceText = (activePkg.dataset.price || '0');
+  var timelineText = activePkg.dataset.timeline || '';
+  var pkgNameWithTimeline = timelineText ? pkgName + ' (' + timelineText + ')' : pkgName;
+
+  if (label) label.textContent = 'Package Selected';
+  if (sub) sub.textContent = 'Add to cart or continue to checkout.';
+  if (pkgValue) pkgValue.textContent = pkgNameWithTimeline;
+  if (totalVal) totalVal.textContent = 'Rs. ' + priceText;
+  if (mLabel) mLabel.textContent = 'Package Selected';
+  if (mPkgValue) mPkgValue.textContent = pkgNameWithTimeline;
+  if (mTotal) mTotal.textContent = 'Rs. ' + priceText;
+}
+
+    /* ========================= */
+    /* CART (localStorage)        */
+    /* ========================= */
+    function getCart() {
+      try { return JSON.parse(localStorage.getItem('ifts_cart')) || []; }
+      catch (e) { return []; }
+    }
+
+    function saveCart(cart) {
+      localStorage.setItem('ifts_cart', JSON.stringify(cart));
+    }
+
+    function addPkgToCart(card) {
+      if (!card) { alert('Please select a package.'); return; }
+
+      var service = {
+        id: card.dataset.id,
+        name: card.dataset.name,
+        pkg: card.dataset.pkg,
+        price: Number((card.dataset.price || '0').replace(/,/g, '')),
+        timeline: card.dataset.timeline || ''
+      };
+
+      saveCart([service]);
+    }
+
+    /* ========================= */
+    /* BUTTON EVENTS              */
+    /* ========================= */
+    document.addEventListener('DOMContentLoaded', function () {
+
+      var cartBtn = document.getElementById('btn-cart');
+      if (cartBtn) {
+        cartBtn.addEventListener('click', function () {
+          if (!activePkg) { alert('Please select a package.'); return; }
+          addPkgToCart(activePkg);
+          this.classList.add('active');
+          this.innerHTML = '<i class="fa-solid fa-check"></i> Added';
+          var mcb = document.getElementById('m-btn-cart');
+          if (mcb) { mcb.classList.add('active'); mcb.innerHTML = '<i class="fa-solid fa-check"></i> Added'; }
+        });
+      }
+
+      var continueBtn = document.getElementById('btn-continue');
+      if (continueBtn) {
+        continueBtn.addEventListener('click', function () {
+          if (!activePkg) { alert('Please select a package first.'); return; }
+          addPkgToCart(activePkg);
+          window.location.href = '../../checkout.php';
+        });
+      }
+
+      var mCartBtn = document.getElementById('m-btn-cart');
+      if (mCartBtn) {
+        mCartBtn.addEventListener('click', function () {
+          if (!activePkg) { alert('Please select a package.'); return; }
+          addPkgToCart(activePkg);
+          this.classList.add('active');
+          this.innerHTML = '<i class="fa-solid fa-check"></i> Added';
+          var cb = document.getElementById('btn-cart');
+          if (cb) { cb.classList.add('active'); cb.innerHTML = '<i class="fa-solid fa-check"></i> Added'; }
+        });
+      }
+
+      var mContinueBtn = document.getElementById('m-btn-continue');
+      if (mContinueBtn) {
+        mContinueBtn.addEventListener('click', function () {
+          if (!activePkg) { alert('Please select a package first.'); return; }
+          addPkgToCart(activePkg);
+          window.location.href = '/checkout.php';
+        });
+      }
+
+      var preSelected = document.querySelector('[data-id="SB-FLR-001-2"]');
+      if (preSelected) {
+        selectPkg(preSelected);
+      }
+
+    });
+
+    /* ========================= */
+    /* DESKTOP FAQ                */
+    /* ========================= */
+    function toggleFaq(item) {
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(function (f) { f.classList.remove('open'); });
+      if (!isOpen) item.classList.add('open');
+    }
+
+  var allFaqsShown = false;
+function toggleAllFaqs() {
+  var overflow = document.querySelector('.faq-overflow');
+  var btn = document.getElementById('view-all-faqs-btn');
+  allFaqsShown = !allFaqsShown;
+  if (overflow) overflow.style.display = allFaqsShown ? 'block' : 'none';
+  if (btn) btn.innerHTML = allFaqsShown
+    ? 'Show Less <i class="fa-solid fa-chevron-up"></i>'
+    : 'View All FAQs <i class="fa-solid fa-chevron-down"></i>';
+}
+    /* ========================= */
+    /* MOBILE FAQ                 */
+    /* ========================= */
+    function toggleFaqMobile(item) {
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.m-faq-item').forEach(function (f) { f.classList.remove('open'); });
+      if (!isOpen) item.classList.add('open');
+    }
+
+  var allFaqsMobileShown = false;
+function toggleAllFaqsMobile() {
+  var overflow = document.querySelector('.m-faq-overflow');
+  var textEl = document.getElementById('m-view-all-faqs-text');
+  var btn = document.getElementById('m-view-all-faqs-btn');
+  allFaqsMobileShown = !allFaqsMobileShown;
+  if (overflow) overflow.style.display = allFaqsMobileShown ? 'block' : 'none';
+  if (textEl) textEl.textContent = allFaqsMobileShown ? 'Show Less' : 'View All FAQs';
+  if (btn) btn.classList.toggle('open', allFaqsMobileShown);
+}
+
+    /* ========================= */
+    /* MOBILE ACCORDION           */
+    /* ========================= */
+    function toggleMobileAccordion(id) {
+      var acc = document.getElementById(id);
+      if (acc) acc.classList.toggle('open');
+    }
+
+    /* ========================= */
+    /* STICKY BAR SCROLL          */
+    /* ========================= */
+    var stickyBar = document.getElementById('sticky-bar');
+    var mStickyBar = document.getElementById('m-sticky-bar');
+    var bottomSpacer = document.getElementById('bottom-spacer');
+    var mBottomSpacer = document.getElementById('m-bottom-spacer');
+    var stickyShown = false;
+    var manuallyShown = false;
+
+    function showStickyBar() {
+      if (stickyBar) stickyBar.classList.add('visible');
+      if (mStickyBar) mStickyBar.classList.add('visible');
+      if (bottomSpacer) bottomSpacer.classList.add('active');
+      if (mBottomSpacer) mBottomSpacer.classList.add('active');
+      manuallyShown = true;
+      stickyShown = true;
+    }
+
+    function handleScroll() {
+      var scrolled = window.scrollY > 220;
+      if (scrolled || manuallyShown) {
+        if (!stickyShown) {
+          if (stickyBar) stickyBar.classList.add('visible');
+          if (mStickyBar) mStickyBar.classList.add('visible');
+          if (bottomSpacer) bottomSpacer.classList.add('active');
+          if (mBottomSpacer) mBottomSpacer.classList.add('active');
+          stickyShown = true;
+        }
+      } else {
+        if (stickyShown) {
+          if (stickyBar) stickyBar.classList.remove('visible');
+          if (mStickyBar) mStickyBar.classList.remove('visible');
+          if (bottomSpacer) bottomSpacer.classList.remove('active');
+          if (mBottomSpacer) mBottomSpacer.classList.remove('active');
+          stickyShown = false;
+        }
+      }
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    /* ========================= */
+    /* MODALS                     */
+    /* ========================= */
+    function openModal(id) {
+      var el = document.getElementById(id);
+      if (el) { el.classList.add('open'); document.body.style.overflow = 'hidden'; }
+    }
+    function closeModal(id) {
+      var el = document.getElementById(id);
+      if (el) { el.classList.remove('open'); document.body.style.overflow = ''; }
+    }
+    function closeModalOnOverlay(evt, id) {
+      if (evt.target.id === id) closeModal(id);
+    }
+
+    /* ========================= */
+    /* DRAWER                     */
+    /* ========================= */
+    var drawerOverlay = document.getElementById('drawer-overlay');
+    var drawerPanel = document.getElementById('drawer-panel');
+    var drawerContent = document.getElementById('drawer-content');
+    var drawerTotalPrice = document.getElementById('drawer-total-price');
+    var drawerCtaBtn = document.getElementById('drawer-cta-btn');
+    var currentDrawerCard = null;
+
+    function buildListHTML(items, listClass) {
+      return '<ul class="' + listClass + '">' +
+        items.map(function (i) { return '<li>' + i + '</li>'; }).join('') +
+        '</ul>';
+    }
+
+    function openDrawer(card) {
+      if (!card) return;
+      var id = card.dataset.id;
+      var data = packageData[id];
+      if (!data) return;
+
+      drawerPanel.classList.toggle('premium', !!data.premium);
+
+      var html = '';
+      html += '<div style="display:flex;align-items:flex-start;gap:14px;margin-bottom:10px;">';
+
+      html += '<div class="drawer-icon-circle" style="flex-shrink:0;">';
+      html += '<i class="' + data.icon + '"></i>';
+      html += '</div>';
+
+      html += '<div style="flex:1;">';
+
+      html += '<div class="drawer-name" style="margin-bottom:2px;">' + data.name + '</div>';
+
+      html += '<div class="drawer-sub" style="margin-bottom:10px;">' + data.sub + '</div>';
+
+      html += '<div class="drawer-price">' + data.price + '</div>';
+
+      html += '<div class="drawer-price-note">' + data.priceNote + '</div>';
+
+      html += '</div>';
+
+      html += '</div>';
+      html += '<button class="btn-drawer-select" onclick="drawerSelectPackage()">Select Package</button>';
+      html += '<div class="drawer-section"><div class="drawer-section-label"><i class="fa-solid fa-bullseye"></i> Recommended For</div>' + buildListHTML(data.recommendedFor, 'drawer-list check') + '</div>';
+      html += '<div class="drawer-section"><div class="drawer-section-label"><i class="fa-solid fa-circle-check"></i> What Is Included</div>' + buildListHTML(data.includes, 'drawer-list check') + '</div>';
+      html += '<div class="drawer-section"><div class="drawer-section-label"><i class="fa-regular fa-file-lines" style="color:var(--brand);"></i> Requirements</div><ul class="drawer-list-grid">' + data.requirements.map(function (i) { return '<li>' + i + '</li>'; }).join('') + '</ul></div>';
+      html += '<div class="drawer-section"><div class="drawer-section-label"><i class="fa-regular fa-clock" style="color:var(--brand);"></i> Service Timeline</div><div class="drawer-timeline-row"><i class="fa-regular fa-clock"></i><span class="drawer-timeline-value">' + data.timeline + '</span></div></div>';
+      html += '<div class="drawer-section"><div class="drawer-section-label notes"><i class="fa-solid fa-triangle-exclamation"></i> Important Notes</div><ul class="drawer-list drawer-notes-list">' + data.notes.map(function (i) { return '<li>' + i + '</li>'; }).join('') + '</ul></div>';
+
+      drawerContent.innerHTML = html;
+      drawerTotalPrice.textContent = data.price;
+      drawerCtaBtn.textContent = 'Select & Add to Cart';
+
+      drawerOverlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function drawerSelectPackage() {
+      if (currentDrawerCard) {
+        selectPkg(currentDrawerCard);
+        drawerCtaBtn.innerHTML = '<i class="fa-solid fa-check"></i> Selected';
+      }
+    }
+
+    if (drawerCtaBtn) {
+      drawerCtaBtn.addEventListener('click', function () {
+        if (currentDrawerCard) {
+          selectPkg(currentDrawerCard);
+          addPkgToCart(currentDrawerCard);
+          this.innerHTML = '<i class="fa-solid fa-check"></i> Added to Cart';
+          var self = this;
+          setTimeout(function () { closeDrawer(); }, 600);
+        }
+      });
+    }
+
+    function closeDrawer() {
+      if (drawerOverlay) drawerOverlay.classList.remove('open');
+      document.body.style.overflow = '';
+      currentDrawerCard = null;
+    }
+
+    function closeDrawerOnOverlay(evt) {
+      if (evt.target.id === 'drawer-overlay') closeDrawer();
+    }
+  </script>
+
+</body>
+
+</html>

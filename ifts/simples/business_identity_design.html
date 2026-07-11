@@ -1,0 +1,1855 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IFTS – Single Member Company (SMC) Private Limited Registration</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f4f6fb;
+            color: #1a2a5e;
+            font-size: 14px;
+            min-height: 100vh;
+        }
+
+        /* BREADCRUMB */
+        .breadcrumb {
+            background: #f4f6fb;
+            padding: 14px 36px 0;
+        }
+
+        .breadcrumb a {
+            color: #1a2a5e;
+            font-size: 13px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+            color: #0f1c3f;
+            transform: translateX(-2px);
+        }
+
+        /* MAIN LAYOUT — DESKTOP: 3 columns */
+        .main {
+            display: grid;
+            grid-template-columns: 1fr 1.25fr 0.85fr;
+            gap: 0;
+            padding: 18px 36px 0;
+        }
+
+        /* TABLET */
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .breadcrumb {
+                padding: 14px 24px 0;
+            }
+
+            .main {
+                grid-template-columns: 1fr 1fr;
+                padding: 18px 24px 0;
+            }
+
+            .left-panel {
+                padding-right: 20px;
+            }
+
+            .mid-panel {
+                padding: 0 0 0 20px;
+                border-right: none;
+            }
+
+            .right-panel {
+                grid-column: 1 / -1;
+                padding-left: 0;
+                padding-top: 22px;
+                margin-top: 10px;
+                border-left: none;
+                border-top: 1px solid #dde3f0;
+            }
+
+            .footer-strip {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-item:nth-child(1) {
+                border-right: 1px solid #dde3f0;
+            }
+
+            .footer-item:nth-child(2) {
+                border-right: none;
+            }
+
+            .footer-item:nth-child(3) {
+                border-right: 1px solid #dde3f0;
+                border-top: 1px solid #dde3f0;
+            }
+
+            .footer-item:nth-child(4) {
+                border-right: none;
+                border-top: 1px solid #dde3f0;
+            }
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+            .breadcrumb {
+                padding: 14px 16px 0;
+            }
+
+            .main {
+                display: flex;
+                flex-direction: column;
+                padding: 0 16px;
+                gap: 0;
+                margin-top: 18px !important;
+            }
+
+            .left-panel {
+                order: 1;
+                padding-right: 0;
+                padding-bottom: 24px;
+                border-right: none;
+                border-bottom: 1px solid #dde3f0;
+                width: 100%;
+            }
+
+            .mid-panel {
+                order: 2;
+                border-left: none;
+                border-right: none;
+                padding: 24px 0 0;
+                width: 100%;
+            }
+
+            .right-panel {
+                order: 3;
+                border-left: none;
+                padding: 24px 0 0 0;
+                margin-top: 0;
+                border-top: 1px solid #dde3f0;
+                width: 100%;
+                margin-left: -25px;
+            }
+
+            .faq-title {
+                padding-left: 0;
+                margin-left: 0;
+            }
+
+            .faq-item {
+                margin-bottom: 10px;
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            .faq-item:last-child {
+                margin-bottom: 0;
+            }
+
+            .faq-question {
+                padding: 14px 14px;
+                font-size: 13px;
+            }
+
+            .faq-answer {
+                padding: 0 14px 14px;
+                font-size: 12.5px;
+            }
+
+            .footer-strip {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                margin-top: 24px;
+                gap: 0;
+            }
+
+            .footer-item {
+                border-right: none !important;
+                border-top: none !important;
+                border-bottom: none !important;
+                padding: 16px 14px;
+                gap: 12px;
+            }
+
+            .footer-item-icon {
+                width: 40px;
+                height: 40px;
+                flex-shrink: 0;
+            }
+
+            .footer-item-icon i {
+                font-size: 16px;
+            }
+
+            .footer-item-text strong {
+                font-size: 12.5px;
+            }
+
+            .footer-item-text span {
+                font-size: 11px;
+            }
+
+            .footer-item:nth-child(1) {
+                border-right: 1px solid #dde3f0 !important;
+                border-bottom: 1px solid #dde3f0 !important;
+            }
+
+            .footer-item:nth-child(2) {
+                border-bottom: 1px solid #dde3f0 !important;
+            }
+
+            .footer-item:nth-child(3) {
+                border-right: 1px solid #dde3f0 !important;
+            }
+
+            .footer-item:nth-child(4) {
+                border-right: none !important;
+            }
+
+            .action-btns {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .btn-cart,
+            .btn-continue {
+                width: 100%;
+                padding: 13px;
+            }
+
+            .support-btns {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .btn-support-primary,
+            .btn-support-wa {
+                width: 100%;
+            }
+
+            .pkg-card {
+                flex-wrap: wrap;
+                gap: 10px;
+                padding: 14px 14px;
+                width: 100%;
+            }
+
+            .pkg-price {
+                text-align: left;
+                width: 100%;
+                margin-top: 4px;
+                padding-left: 44px;
+                min-width: unset;
+            }
+
+            .pkg-info {
+                flex: 1 1 calc(100% - 120px);
+                min-width: 0;
+            }
+
+            .pkg-features li {
+                font-size: 12px;
+            }
+
+            .extra-note-bar {
+                font-size: 11.5px;
+                flex-wrap: wrap;
+            }
+
+            .service-header {
+                flex-wrap: wrap;
+            }
+
+            .right-panel {
+                margin-left: 0;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .pkg-card {
+                padding: 12px 12px;
+            }
+
+            .pkg-icon-box {
+                width: 40px;
+                height: 40px;
+            }
+
+            .pkg-icon-box i {
+                font-size: 17px;
+            }
+
+            .pkg-name {
+                font-size: 14px;
+            }
+
+            .pkg-sub {
+                font-size: 11px;
+            }
+
+            .service-title {
+                font-size: 15px;
+            }
+
+            .footer-item-icon {
+                width: 38px;
+                height: 38px;
+            }
+
+            .footer-item-icon i {
+                font-size: 16px;
+            }
+        }
+
+        /* LEFT PANEL */
+        .left-panel {
+            padding-right: 28px;
+        }
+
+        .service-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            margin-bottom: 18px;
+        }
+
+        .service-icon-box {
+            width: 54px;
+            height: 54px;
+            border: 2px solid #1a2a5e;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            background: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .service-icon-box i {
+            font-size: 22px;
+            color: #1a2a5e;
+            transition: transform 0.2s ease;
+        }
+
+        .service-title {
+            font-size: 17px;
+            font-weight: 800;
+            color: #1a2a5e;
+            line-height: 1.25;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .service-desc {
+            font-size: 12.5px;
+            color: #4a5568;
+            line-height: 1.5;
+        }
+
+        .section-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: #1a2a5e;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+            margin-top: 4px;
+        }
+
+        .feature-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 18px;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            transition: all 0.2s ease;
+            padding: 4px 6px;
+            border-radius: 8px;
+            cursor: default;
+        }
+
+        .feature-list li:hover {
+            background: rgba(26, 42, 94, 0.04);
+            transform: translateX(4px);
+        }
+
+        .feature-icon {
+            width: 20px;
+            height: 20px;
+            background: #1a2a5e;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 1px;
+            transition: transform 0.2s ease;
+        }
+
+        .feature-list li:hover .feature-icon {
+            transform: scale(1.08);
+        }
+
+        .feature-icon i {
+            color: #fff;
+            font-size: 10px;
+        }
+
+        .feature-text strong {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            color: #1a2a5e;
+            margin-bottom: 2px;
+        }
+
+        .feature-text span {
+            font-size: 12px;
+            color: #4a5568;
+            line-height: 1.4;
+        }
+
+        .timeline-box {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 16px;
+            transition: all 0.2s ease;
+        }
+
+        .timeline-box i {
+            color: #1a2a5e;
+            font-size: 16px;
+            margin-top: 3px;
+        }
+
+        .timeline-label {
+            font-size: 10.5px;
+            font-weight: 700;
+            color: #1a2a5e;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+
+        .timeline-days {
+            font-size: 15px;
+            font-weight: 800;
+            color: #1a2a5e;
+        }
+
+        .timeline-note {
+            font-size: 11px;
+            color: #4a5568;
+        }
+
+        .why-box {
+            border: 1.5px solid #c8d0e7;
+            border-radius: 8px;
+            padding: 12px 16px;
+            transition: all 0.25s ease;
+        }
+
+        .why-box:hover {
+            border-color: #1a2a5e;
+            box-shadow: 0 4px 12px rgba(26, 42, 94, 0.08);
+        }
+
+        .why-title {
+            font-size: 11px;
+            font-weight: 700;
+            color: #1a2a5e;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            margin-bottom: 8px;
+        }
+
+        .why-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .why-list li {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 12px;
+            color: #1a2a5e;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            cursor: default;
+            padding: 2px 4px;
+            border-radius: 6px;
+        }
+
+        .why-list li:hover {
+            background: rgba(26, 42, 94, 0.05);
+            transform: translateX(3px);
+        }
+
+        .why-list li i {
+            color: #1a2a5e;
+            font-size: 11px;
+            transition: transform 0.2s ease;
+        }
+
+        .why-list li:hover i {
+            transform: scale(1.1);
+        }
+
+        /* REQUIREMENTS BOX */
+        .req-box {
+            border: 1.5px solid #c8d0e7;
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin-bottom: 16px;
+            transition: all 0.25s ease;
+        }
+
+        .req-box:hover {
+            border-color: #1a2a5e;
+            box-shadow: 0 4px 12px rgba(26, 42, 94, 0.08);
+        }
+
+        .req-title {
+            font-size: 11px;
+            font-weight: 700;
+            color: #1a2a5e;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            margin-bottom: 8px;
+        }
+
+        .req-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .req-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 7px;
+            font-size: 12px;
+            color: #4a5568;
+            font-weight: 400;
+            transition: all 0.2s ease;
+            cursor: default;
+            padding: 2px 4px;
+            border-radius: 6px;
+            line-height: 1.4;
+        }
+
+        .req-list li:hover {
+            background: rgba(26, 42, 94, 0.04);
+            transform: translateX(3px);
+        }
+
+        .req-list li i {
+            color: #1a2a5e;
+            font-size: 10px;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        /* MIDDLE PANEL */
+        .mid-panel {
+            padding: 0 24px;
+            border-left: 1px solid #dde3f0;
+            border-right: 1px solid #dde3f0;
+        }
+
+        .choose-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1a2a5e;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 14px;
+        }
+
+        .pkg-card {
+            border: 1.5px solid #dde3f0;
+            border-radius: 10px;
+            padding: 18px 20px;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            cursor: pointer;
+            background: #fff;
+            position: relative;
+            transition: all 0.25s cubic-bezier(0.2, 0, 0, 1);
+        }
+
+        .pkg-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(26, 42, 94, 0.12);
+            border-color: #b8c2dd;
+        }
+
+        .pkg-card.selected {
+            border-color: #1a2a5e;
+            background: #fff;
+            box-shadow: 0 8px 20px rgba(26, 42, 94, 0.1);
+        }
+
+        .pkg-card.popular {
+            border-color: #1a2a5e;
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -1px;
+            right: 18px;
+            background: #1a2a5e;
+            color: #fff;
+            font-size: 10.5px;
+            font-weight: 700;
+            padding: 3px 12px;
+            border-radius: 0 0 7px 7px;
+            letter-spacing: 0.3px;
+            transition: all 0.2s ease;
+        }
+
+        .pkg-radio {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            border: 2px solid #aab4cc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 3px;
+            transition: all 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+
+        .pkg-radio.checked {
+            border-color: #1a2a5e;
+        }
+
+        .pkg-radio.checked::after {
+            content: '';
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: #1a2a5e;
+            display: block;
+            animation: pulseSelect 0.3s ease-out;
+        }
+
+        @keyframes pulseSelect {
+            0% {
+                transform: scale(0.2);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .pkg-icon-box {
+            width: 48px;
+            height: 48px;
+            border: 1.5px solid #c8d0e7;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            background: #f4f6fb;
+            transition: all 0.2s ease;
+        }
+
+        .pkg-card:hover .pkg-icon-box {
+            transform: scale(1.02);
+            border-color: #1a2a5e;
+        }
+
+        .pkg-icon-box i {
+            font-size: 20px;
+            color: #1a2a5e;
+            transition: transform 0.2s ease;
+        }
+
+        .pkg-card:hover .pkg-icon-box i {
+            transform: scale(1.02);
+        }
+
+        .pkg-info {
+            flex: 1;
+        }
+
+        .pkg-name {
+            font-size: 16px;
+            font-weight: 800;
+            color: #1a2a5e;
+            margin-bottom: 1px;
+        }
+
+        .pkg-sub {
+            font-size: 12px;
+            color: #4a5568;
+            margin-bottom: 8px;
+        }
+
+        .pkg-features {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .pkg-features li {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 12.5px;
+            color: #1a2a5e;
+            transition: all 0.2s ease;
+        }
+
+        .pkg-features li i {
+            color: #1a2a5e;
+            font-size: 11px;
+            transition: transform 0.2s ease;
+        }
+
+        .pkg-card:hover .pkg-features li i {
+            transform: scale(1.08);
+        }
+
+        .pkg-price {
+            font-size: 18px;
+            font-weight: 800;
+            color: #1a2a5e;
+            white-space: nowrap;
+            text-align: right;
+            min-width: 80px;
+            transition: all 0.2s ease;
+        }
+
+        .extra-note-bar {
+            background: #eef1fb;
+            border-radius: 7px;
+            padding: 9px 14px;
+            font-size: 12px;
+            color: #1a2a5e;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+            transition: all 0.2s ease;
+        }
+
+        .extra-note-bar i {
+            color: #1a2a5e;
+            font-size: 13px;
+        }
+
+        /* ACTION BUTTONS */
+        .action-btns {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn-cart {
+            flex: 1;
+            border: 1.5px solid #c8d0e7;
+            background: #fff;
+            color: #1a2a5e;
+            padding: 13px 0;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+
+        .btn-cart:hover {
+            background: #f4f6fb;
+            transform: scale(1.02);
+            border-color: #1a2a5e;
+        }
+
+        .btn-cart:active {
+            transform: scale(0.98);
+        }
+
+        .btn-continue {
+            flex: 1;
+            background: #1a2a5e;
+            color: #fff;
+            padding: 13px 0;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+
+        .btn-continue:hover {
+            background: #243870;
+            transform: scale(1.02);
+            box-shadow: 0 4px 12px rgba(26, 42, 94, 0.2);
+        }
+
+        .btn-continue:active {
+            transform: scale(0.98);
+        }
+
+        /* RIGHT PANEL */
+        .right-panel {
+            padding-left: 28px;
+        }
+
+        .faq-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1a2a5e;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .faq-item {
+            border: 1.5px solid #d9e1f2;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            background: #fff;
+            overflow: hidden;
+            transition: all 0.25s cubic-bezier(0.2, 0, 0, 1);
+            cursor: pointer;
+        }
+
+        .faq-item:hover {
+            border-color: #1a2a5e;
+            box-shadow: 0 8px 22px rgba(26, 42, 94, 0.07);
+            transform: translateY(-2px);
+        }
+
+        .faq-question {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            padding: 14px 16px;
+            cursor: pointer;
+            border: none;
+            font-size: 13px;
+            font-weight: 500;
+            color: #1a2a5e;
+            transition: background 0.2s ease;
+        }
+
+        .faq-question i {
+            flex-shrink: 0;
+            width: 18px;
+            text-align: center;
+            transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 0 16px 14px;
+            border-top: 1px solid #eef2fb;
+            background: #fcfdff;
+            font-size: 12.5px;
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        .faq-item.open .faq-answer {
+            display: block;
+            animation: fadeSlideDown 0.3s ease-out;
+        }
+
+        @keyframes fadeSlideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-8px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .faq-item.open .faq-question i {
+            transform: rotate(45deg);
+        }
+
+        .faq-item.open {
+            border-color: #1a2a5e;
+            box-shadow: 0 10px 24px rgba(26, 42, 94, 0.09);
+        }
+
+
+        /* FOOTER STRIP */
+        .footer-strip {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            background: #fff;
+            border-top: 1px solid #dde3f0;
+            margin-top: 22px;
+        }
+
+        .footer-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 22px 28px;
+            border-right: 1px solid #dde3f0;
+            transition: all 0.25s ease;
+        }
+
+        .footer-item:hover {
+            background: rgba(26, 42, 94, 0.02);
+            transform: translateY(-3px);
+        }
+
+        .footer-item:last-child {
+            border-right: none;
+        }
+
+        .footer-item-icon {
+            width: 44px;
+            height: 44px;
+            background: #1a2a5e;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.25s ease;
+        }
+
+        .footer-item:hover .footer-item-icon {
+            transform: scale(1.03);
+            background: #0f1c3f;
+        }
+
+        .footer-item-icon i {
+            color: #fff;
+            font-size: 18px;
+            transition: transform 0.2s ease;
+        }
+
+        .footer-item:hover .footer-item-icon i {
+            transform: scale(1.05);
+        }
+
+        .footer-item-text strong {
+            display: block;
+            font-size: 13.5px;
+            font-weight: 700;
+            color: #1a2a5e;
+            margin-bottom: 2px;
+        }
+
+        .footer-item-text span {
+            font-size: 12px;
+            color: #4a5568;
+        }
+
+        @media (max-width: 768px) {
+            .footer-strip {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                margin-top: 24px;
+                gap: 0;
+                background: #fff;
+            }
+
+            .footer-item {
+                border-right: none !important;
+                border-top: none !important;
+                border-bottom: none !important;
+                padding: 18px 16px;
+                gap: 14px;
+                transition: background 0.2s ease;
+            }
+
+            .footer-item-icon {
+                width: 44px;
+                height: 44px;
+                flex-shrink: 0;
+            }
+
+            .footer-item-icon i {
+                font-size: 18px;
+            }
+
+            .footer-item-text strong {
+                font-size: 13px;
+                margin-bottom: 2px;
+            }
+
+            .footer-item-text span {
+                font-size: 11.5px;
+                line-height: 1.3;
+            }
+
+            .footer-item:nth-child(1) {
+                border-right: 1px solid #dde3f0 !important;
+                border-bottom: 1px solid #dde3f0 !important;
+            }
+
+            .footer-item:nth-child(2) {
+                border-bottom: 1px solid #dde3f0 !important;
+            }
+
+            .footer-item:nth-child(3) {
+                border-right: 1px solid #dde3f0 !important;
+            }
+
+            .footer-item:nth-child(4) {
+                border-right: none !important;
+                border-bottom: none !important;
+            }
+
+            .footer-item:active {
+                background: rgba(26, 42, 94, 0.03);
+                transform: scale(0.99);
+            }
+        }
+
+        @media (max-width: 400px) {
+            .footer-item {
+                padding: 14px 12px;
+                gap: 10px;
+            }
+
+            .footer-item-icon {
+                width: 40px;
+                height: 40px;
+            }
+
+            .footer-item-icon i {
+                font-size: 16px;
+            }
+
+            .footer-item-text strong {
+                font-size: 12px;
+            }
+
+            .footer-item-text span {
+                font-size: 10.5px;
+            }
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f4f6fb;
+            color: #1a2a5e;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .demo-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* PAGE LOAD ANIMATIONS */
+        .left-panel {
+            opacity: 0;
+            transform: translateX(-30px);
+            animation: slideInLeft 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
+        }
+
+        .mid-panel {
+            opacity: 0;
+            transform: scale(0.96);
+            animation: fadeScaleUp 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1) 0.1s forwards;
+        }
+
+        .right-panel {
+            opacity: 0;
+            transform: translateX(30px);
+            animation: slideInRight 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1) 0.2s forwards;
+        }
+
+        @keyframes slideInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeScaleUp {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* SCROLL REVEAL */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .mid-panel {
+                border-left: none;
+                border-right: none;
+                padding-left: 0;
+                padding-right: 0;
+                padding-top: 24px;
+                padding-bottom: 0;
+                border-top: 1px solid #dde3f0;
+            }
+        }
+
+
+       /* ======================================== */
+/* UPDATED SERVICE HIGHLIGHTS SECTION */
+/* REPLACE OLD .service-highlights CSS */
+/* ======================================== */
+
+.service-highlights {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+
+    /* IMPORTANT */
+    margin: 18px -14px 20px;
+    padding: 0 2px;
+
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    overflow: visible;
+}
+
+.highlight-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+
+    background: #f7f9fe;
+
+    padding: 14px 12px;
+
+    border: none;
+    border-radius: 12px;
+
+    min-height: 86px;
+
+    transition: all 0.25s ease;
+}
+
+.highlight-box:hover {
+    transform: translateY(-2px);
+    background: #f1f5ff;
+    box-shadow: 0 6px 18px rgba(26, 42, 94, 0.06);
+}
+
+.highlight-icon {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    border: 1.5px solid rgba(26, 42, 94, 0.12);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 1px;
+}
+
+.highlight-icon i {
+    font-size: 14px;
+    color: #1a2a5e;
+}
+
+.highlight-content {
+    flex: 1;
+}
+
+.highlight-title {
+    font-size: 10px;
+    font-weight: 800;
+    color: #1a2a5e;
+
+    line-height: 1.3;
+    margin-bottom: 4px;
+
+    letter-spacing: 0.2px;
+}
+
+.highlight-text {
+    font-size: 10.5px;
+    line-height: 1.45;
+
+    color: #5b6785;
+}
+
+/* ======================= */
+/* TABLET */
+/* ======================= */
+
+@media (max-width: 1024px) {
+
+    .service-highlights {
+        grid-template-columns: repeat(2, 1fr);
+        margin: 18px 0 20px;
+        padding: 0;
+    }
+}
+
+/* ======================= */
+/* MOBILE */
+/* ======================= */
+
+@media (max-width: 768px) {
+
+    .service-highlights {
+        grid-template-columns: 1fr;
+        gap: 10px;
+
+        margin: 18px 0 18px;
+        padding: 0;
+    }
+
+    .highlight-box {
+        min-height: auto;
+        padding: 13px 12px;
+    }
+
+    .highlight-icon {
+        width: 34px;
+        height: 34px;
+        min-width: 34px;
+    }
+
+    .highlight-icon i {
+        font-size: 13px;
+    }
+
+    .highlight-title {
+        font-size: 9.8px;
+    }
+
+    .highlight-text {
+        font-size: 10px;
+    }
+}
+
+        /* ========================= */
+        /* ADD TO CART ACTIVE STATE */
+        /* ========================= */
+
+        .btn-cart.active {
+
+            background: #1a2a5e;
+            color: #ffffff;
+            border-color: #1a2a5e;
+
+            box-shadow:
+                0 4px 12px rgba(26, 42, 94, 0.18);
+        }
+
+        .btn-cart.active i {
+            color: #ffffff;
+        }
+
+        /* ========================= */
+        /* CONTINUE BUTTON DISABLED */
+        /* ========================= */
+
+        .btn-continue.disabled {
+
+            opacity: 0.5;
+
+            cursor: not-allowed;
+
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb">
+        <a href="#"><i class="fa-solid fa-arrow-left"></i> Back to Company Registration Services</a>
+    </div>
+
+    <!-- MAIN -->
+    <div class="main" style="margin-top: 30px;">
+
+        <!-- LEFT PANEL -->
+        <div class="left-panel scroll-reveal">
+            <div class="service-header">
+                <div class="service-icon-box">
+                    <i class="fa-solid fa-building"></i>
+                </div>
+                <div>
+                    <div class="service-title">SMC Private<br>Limited Registration</div>
+                    <div class="service-desc">Complete registration of a Single Member Company (SMC) Private Limited
+                        with SECP — a fully-owned company by a single individual, offering limited liability and legal
+                        identity.</div>
+                </div>
+            </div>
+
+            <div class="section-label">What You Get</div>
+            <ul class="feature-list">
+                <li>
+                    <div class="feature-icon"><i class="fa-solid fa-check"></i></div>
+                    <div class="feature-text">
+                        <strong>SECP Name Availability &amp; Approval</strong>
+                        <span>Company name search and approval from SECP before registration begins.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="feature-icon"><i class="fa-solid fa-check"></i></div>
+                    <div class="feature-text">
+                        <strong>Certificate of Incorporation</strong>
+                        <span>Officially issued certificate confirming your company's legal existence.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="feature-icon"><i class="fa-solid fa-check"></i></div>
+                    <div class="feature-text">
+                        <strong>Memorandum &amp; Articles of Association</strong>
+                        <span>Drafting and filing of MoA and AoA with SECP as per legal requirements.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="feature-icon"><i class="fa-solid fa-check"></i></div>
+                    <div class="feature-text">
+                        <strong>NTN Registration (FBR)</strong>
+                        <span>Company NTN registration with the Federal Board of Revenue for tax compliance.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="feature-icon"><i class="fa-solid fa-check"></i></div>
+                    <div class="feature-text">
+                        <strong>Digital Signature &amp; SECP Filing</strong>
+                        <span>Complete online filing and document submission through SECP's eServices portal.</span>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="timeline-box">
+                <i class="fa-regular fa-clock"></i>
+                <div>
+                    <div class="timeline-label">Service Timeline</div>
+                    <div class="timeline-days">7 – 14 Working Days</div>
+                    <div class="timeline-note">Timeline depends on SECP processing and document readiness.</div>
+                </div>
+            </div>
+
+            <div class="why-box">
+                <div class="why-title">Why Choose IFTS?</div>
+                <ul class="why-list">
+                    <li><i class="fa-solid fa-check"></i> SECP-Registered Consultants</li>
+                    <li><i class="fa-solid fa-check"></i> End-to-End Registration Handling</li>
+                    <li><i class="fa-solid fa-check"></i> Transparent &amp; Affordable Pricing</li>
+                    <li><i class="fa-solid fa-check"></i> Post-Registration Support</li>
+                    <li><i class="fa-solid fa-check"></i> Dedicated Case Manager</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- MIDDLE PANEL -->
+        <div class="mid-panel scroll-reveal">
+            <div class="choose-title">Choose Your Package</div>
+
+            <!-- BASIC -->
+            <div class="pkg-card" data-id="SMC Private
+Limited Registration" data-name="BASIC" data-price="12,500" onclick="selectPkg(this)">
+                <div class="pkg-radio" id="radio-basic"></div>
+                <div class="pkg-icon-box">
+                    <i class="fa-solid fa-file-circle-check"></i>
+                </div>
+                <div class="pkg-info">
+                    <div class="pkg-name">BASIC</div>
+                    <div class="pkg-sub">SECP Registration Only</div>
+                    <ul class="pkg-features">
+                        <li><i class="fa-solid fa-check"></i> Company name availability &amp; approval</li>
+                        <li><i class="fa-solid fa-check"></i> MoA &amp; AoA drafting &amp; filing</li>
+                        <li><i class="fa-solid fa-check"></i> Certificate of Incorporation</li>
+                        <li><i class="fa-solid fa-check"></i> SECP digital filing &amp; submission</li>
+                    </ul>
+                </div>
+                <div class="pkg-price">Rs. 12,500</div>
+            </div>
+
+            <!-- STANDARD (selected + popular) -->
+            <div class="pkg-card selected popular" data-id="SMC Private
+Limited Registration" data-name="STANDARD" data-price="22,000" onclick="selectPkg(this)">
+                <div class="popular-badge">Most Popular</div>
+                <div class="pkg-radio checked" id="radio-standard"></div>
+                <div class="pkg-icon-box">
+                    <i class="fa-solid fa-layer-group"></i>
+                </div>
+                <div class="pkg-info">
+                    <div class="pkg-name">STANDARD</div>
+                    <div class="pkg-sub">SECP Registration + NTN + Bank Account Guidance</div>
+                    <ul class="pkg-features">
+                        <li><i class="fa-solid fa-check"></i> Everything in Basic</li>
+                        <li><i class="fa-solid fa-check"></i> NTN registration with FBR</li>
+                        <li><i class="fa-solid fa-check"></i> Bank account opening guidance</li>
+                        <li><i class="fa-solid fa-check"></i> Company stamp &amp; letterhead (digital)</li>
+                        <li><i class="fa-solid fa-check"></i> Post-registration compliance checklist</li>
+                    </ul>
+                </div>
+                <div class="pkg-price">Rs. 22,000</div>
+            </div>
+
+            <!-- PREMIUM -->
+            <div class="pkg-card" data-id="SMC Private
+Limited Registration" data-name="PREMIUM" data-price="38,500" onclick="selectPkg(this)">
+                <div class="pkg-radio"  id="radio-premium"></div>
+                <div class="pkg-icon-box">
+                    <i class="fa-solid fa-briefcase"></i>
+                </div>
+                <div class="pkg-info">
+                    <div class="pkg-name">PREMIUM</div>
+                    <div class="pkg-sub">Full Setup – Registration + Tax + Accounting + Compliance</div>
+                    <ul class="pkg-features">
+                        <li><i class="fa-solid fa-check"></i> Everything in Standard</li>
+                        <li><i class="fa-solid fa-check"></i> Sales Tax / GST registration (if applicable)</li>
+                        <li><i class="fa-solid fa-check"></i> First-year SECP annual return filing</li>
+                        <li><i class="fa-solid fa-check"></i> Business identity design (letterhead, visiting card)</li>
+                        <li><i class="fa-solid fa-check"></i> 3-month post-registration advisory support</li>
+                    </ul>
+                </div>
+                <div class="pkg-price">Rs. 38,500</div>
+            </div>
+
+            <div class="extra-note-bar">
+                <i class="fa-solid fa-circle-info"></i>
+                Government SECP &amp; FBR fees are not included and will be charged separately.
+            </div>
+
+            <!-- ========================= -->
+<!-- ADD THIS SECTION -->
+<!-- PLACE THIS ABOVE .action-btns -->
+<!-- ========================= -->
+
+<div class="service-highlights">
+    
+    <div class="highlight-box">
+        <div class="highlight-icon">
+            <i class="fa-solid fa-truck"></i>
+        </div>
+        <div class="highlight-content">
+            <div class="highlight-title">HARD COPY DELIVERY</div>
+            <div class="highlight-text">
+                We deliver hard documents to your provided address.
+            </div>
+        </div>
+    </div>
+
+    <div class="highlight-box">
+        <div class="highlight-icon">
+            <i class="fa-brands fa-whatsapp"></i>
+        </div>
+        <div class="highlight-content">
+            <div class="highlight-title">SOFT COPY VIA WHATSAPP</div>
+            <div class="highlight-text">
+                Soft copy (PDF) via WhatsApp along with Tracking ID instantly.
+            </div>
+        </div>
+    </div>
+
+    <div class="highlight-box">
+        <div class="highlight-icon">
+            <i class="fa-regular fa-paper-plane"></i>
+        </div>
+        <div class="highlight-content">
+            <div class="highlight-title">AUTOMATIC TRACKING MESSAGE</div>
+            <div class="highlight-text">
+                Tracking ID is shared automatically via WhatsApp once dispatched.
+            </div>
+        </div>
+    </div>
+
+    <div class="highlight-box">
+        <div class="highlight-icon">
+            <i class="fa-regular fa-file-lines"></i>
+        </div>
+        <div class="highlight-content">
+            <div class="highlight-title">DATA COLLECTION FORMS</div>
+            <div class="highlight-text">
+                IFTS has specific digital forms for accurate data collection and quick filing.
+            </div>
+        </div>
+    </div>
+
+</div>
+
+            <div class="action-btns">
+                <button class="btn-cart"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</button>
+                <button class="btn-continue">Continue <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+
+        <!-- RIGHT PANEL -->
+        <div class="right-panel scroll-reveal">
+            <div class="faq-title">Frequently Asked Questions</div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">1. What is a Single Member Company (SMC)?<i class="fa-solid fa-plus"></i>
+                </div>
+                <div class="faq-answer">An SMC is a private company owned by a single shareholder with limited liability
+                    protection and separate legal identity.</div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">2. What is included in your SMC registration service?<i
+                        class="fa-solid fa-plus"></i></div>
+                <div class="faq-answer">Our service includes: <br>
+•	SECP company incorporation<br>
+•	Name reservation<br>
+•	MOA/AOA drafting<br>
+•	NTN registration<br>
+•	Branding setup<br>
+•	Legal documentation<br>
+•	Digital business setup<br>
+(depending on package selection)<br>
+
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">3. Is SECP official fee included in the package?<i class="fa-solid fa-plus"></i>
+                </div>
+                <div class="faq-answer">No. SECP official fee is charged separately and depends on the authorized capital of the company.</div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">4. How many directors are required in an SMC? <i
+                        class="fa-solid fa-plus"></i></div>
+                <div class="faq-answer">Only one owner/shareholder is required. However, one nominee director is also appointed as per SECP requirements.</div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">5. Can I convert my SMC into a Private Limited Company later? <i
+                        class="fa-solid fa-plus"></i></div>
+                <div class="faq-answer">Yes. An SMC can be converted into a Private Limited Company in the future if additional shareholders/directors are added.</div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">6. What documents are required for SMC registration? <i
+                        class="fa-solid fa-plus"></i></div>
+                <div class="faq-answer">You need: <br>
+•	CNIC copy<br>
+•	Proposed company names<br>
+•	Office address<br>
+•	Business activity details<br>
+•	Contact information<br>
+•	Share capital information<br>
+</div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">7. How long does SMC registration take? <i
+                        class="fa-solid fa-plus"></i></div>
+                <div class="faq-answer">Normally: <br>
+•	Basic: 5–8 Working Days<br>
+•	Standard: 7–10 Working Days<br>
+•	Premium: 10–15 Working Days<br>
+</div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">8. Will I receive NTN after registration?<i
+                        class="fa-solid fa-plus"></i></div>
+                <div class="faq-answer">Yes. FBR NTN registration is included in all packages.</div>
+            </div>
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">9. Is trademark registration included in the package?<i
+                        class="fa-solid fa-plus"></i></div>
+                <div class="faq-answer">Trademark screening guidance is included, but official IPO trademark filing charges are separate.</div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FOOTER STRIP -->
+<!-- FOOTER STRIP -->
+<div class="footer-strip scroll-reveal">
+
+   
+
+    <div class="footer-item">
+        <div class="footer-item-icon">
+            <i class="fa-solid fa-users"></i>
+        </div>
+        <div class="footer-item-text">
+            <strong>TRUSTED BY THOUSANDS</strong>
+            <span>Serving individuals, professionals & businesses across Pakistan.</span>
+        </div>
+    </div>
+
+    <div class="footer-item">
+        <div class="footer-item-icon">
+            <i class="fa-solid fa-lock"></i>
+        </div>
+        <div class="footer-item-text">
+            <strong>SECURE & CONFIDENTIAL</strong>
+            <span>Your information is 100% safe and securely handled.</span>
+        </div>
+    </div>
+
+    <div class="footer-item">
+        <div class="footer-item-icon">
+            <i class="fa-regular fa-clock"></i>
+        </div>
+        <div class="footer-item-text">
+            <strong>FAST & RELIABLE</strong>
+            <span>Timely processing with complete accuracy & confidentiality.</span>
+        </div>
+    </div>
+
+    <div class="footer-item">
+        <div class="footer-item-icon">
+            <i class="fa-solid fa-globe"></i>
+        </div>
+        <div class="footer-item-text">
+            <strong>INTERNATIONAL STANDARD</strong>
+            <span>Best practices for overseas compliance & tax filing.</span>
+        </div>
+    </div>
+
+</div>
+
+    <script>
+
+
+
+const cartBtn = document.querySelector('.btn-cart');
+const continueBtn = document.querySelector('.btn-continue');
+
+continueBtn.classList.add('disabled');
+
+/* PACKAGE SELECT */
+
+function selectPkg(card) {
+
+    // remove previous selection
+    document.querySelectorAll('.pkg-card').forEach(c => {
+
+        c.classList.remove('selected');
+
+        const radioDiv = c.querySelector('.pkg-radio');
+        radioDiv.classList.remove('checked');
+
+    });
+
+    // add current selection
+    card.classList.add('selected');
+
+    const radio = card.querySelector('.pkg-radio');
+    radio.classList.add('checked');
+
+    // reset cart button when changing package
+    cartBtn.classList.remove('active');
+    cartBtn.innerHTML =
+        '<i class="fa-solid fa-cart-shopping"></i> Add to Cart';
+
+    continueBtn.classList.add('disabled');
+
+}
+
+
+/* ADD TO CART */
+
+cartBtn.addEventListener('click', function () {
+
+    const selectedCard =
+        document.querySelector('.pkg-card.selected');
+
+    if (!selectedCard) {
+
+        alert("Please select a package first.");
+        return;
+    }
+
+    // dynamic selected package
+    const selectedService = {
+
+        service: selectedCard.dataset.id,
+        package: selectedCard.dataset.name,
+        price: selectedCard.dataset.price
+
+    };
+
+    // save selected package
+    localStorage.setItem(
+        'selectedService',
+        JSON.stringify(selectedService)
+    );
+
+    // button active state
+    this.classList.add('active');
+
+    this.innerHTML =
+        '<i class="fa-solid fa-check"></i> Added';
+
+    continueBtn.classList.remove('disabled');
+
+});
+
+
+/* CONTINUE */
+
+continueBtn.addEventListener('click', function () {
+
+    const savedService =
+        localStorage.getItem('selectedService');
+
+    if (!savedService) {
+
+        alert("Please add package to cart first.");
+        return;
+    }
+
+    window.location.href = "checkout.html";
+
+});
+
+
+/* FAQ */
+
+function toggleFaq(item) {
+
+    const isOpen =
+        item.classList.contains('open');
+
+    document.querySelectorAll('.faq-item')
+        .forEach(f => f.classList.remove('open'));
+
+    if (!isOpen) {
+
+        item.classList.add('open');
+
+    }
+
+}
+
+
+/* SCROLL REVEAL */
+
+const revealElements =
+    document.querySelectorAll('.scroll-reveal');
+
+const observer =
+    new IntersectionObserver((entries) => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add('revealed');
+
+                observer.unobserve(entry.target);
+
+            }
+
+        });
+
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -20px 0px'
+    });
+
+revealElements.forEach(el => observer.observe(el));
+
+
+
+        function selectPkg(card, pkg) {
+            document.querySelectorAll('.pkg-card').forEach(c => {
+                c.classList.remove('selected');
+                const radioDiv = c.querySelector('.pkg-radio');
+                radioDiv.classList.remove('checked');
+                radioDiv.innerHTML = '';
+            });
+            card.classList.add('selected');
+            const radio = card.querySelector('.pkg-radio');
+            radio.classList.add('checked');
+        }
+
+        function toggleFaq(item) {
+            const isOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq-item').forEach(f => f.classList.remove('open'));
+            if (!isOpen) item.classList.add('open');
+        }
+
+        const revealElements = document.querySelectorAll('.scroll-reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -20px 0px' });
+
+        revealElements.forEach(el => observer.observe(el));
+    </script>
+
+</body>
+
+</html>

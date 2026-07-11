@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../scent&stories"
+		},
+		{
+			"path": "J:/My Drive/IFTS Coding Files"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "ifts"
+	}
+}

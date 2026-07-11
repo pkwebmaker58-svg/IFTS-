@@ -1,0 +1,110 @@
+[20-Jun-2026 15:50:42 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Column 'order_id' cannot be null in C:\xampp\htdocs\ifts\checkout.php:110
+Stack trace:
+#0 C:\xampp\htdocs\ifts\checkout.php(110): mysqli_stmt->execute()
+#1 {main}
+  thrown in C:\xampp\htdocs\ifts\checkout.php on line 110
+[20-Jun-2026 15:58:37 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Column 'order_id' cannot be null in C:\xampp\htdocs\ifts\checkout.php:132
+Stack trace:
+#0 C:\xampp\htdocs\ifts\checkout.php(132): mysqli_stmt->execute()
+#1 {main}
+  thrown in C:\xampp\htdocs\ifts\checkout.php on line 132
+[20-Jun-2026 16:02:47 Europe/Berlin] PHP Warning:  require_once(C:\xampp\htdocs\ifts\backend/PHPMailer/src/Exception.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ifts\backend\mailer.php on line 33
+[20-Jun-2026 16:02:47 Europe/Berlin] checkout.php: notification email failed — Failed opening required 'C:\xampp\htdocs\ifts\backend/PHPMailer/src/Exception.php' (include_path='C:\xampp\php\PEAR')
+[20-Jun-2026 16:02:50 Europe/Berlin] PHP Warning:  require_once(C:\xampp\htdocs\ifts\backend/PHPMailer/src/Exception.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ifts\backend\mailer.php on line 33
+[20-Jun-2026 16:02:50 Europe/Berlin] checkout.php: notification email failed — Failed opening required 'C:\xampp\htdocs\ifts\backend/PHPMailer/src/Exception.php' (include_path='C:\xampp\php\PEAR')
+[20-Jun-2026 16:02:52 Europe/Berlin] PHP Warning:  require_once(C:\xampp\htdocs\ifts\backend/PHPMailer/src/Exception.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ifts\backend\mailer.php on line 33
+[20-Jun-2026 16:02:52 Europe/Berlin] checkout.php: notification email failed — Failed opening required 'C:\xampp\htdocs\ifts\backend/PHPMailer/src/Exception.php' (include_path='C:\xampp\php\PEAR')
+[20-Jun-2026 16:02:53 Europe/Berlin] PHP Warning:  require_once(C:\xampp\htdocs\ifts\backend/PHPMailer/src/Exception.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ifts\backend\mailer.php on line 33
+[20-Jun-2026 16:02:53 Europe/Berlin] checkout.php: notification email failed — Failed opening required 'C:\xampp\htdocs\ifts\backend/PHPMailer/src/Exception.php' (include_path='C:\xampp\php\PEAR')
+[20-Jun-2026 16:02:54 Europe/Berlin] PHP Warning:  require_once(C:\xampp\htdocs\ifts\backend/PHPMailer/src/Exception.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ifts\backend\mailer.php on line 33
+[20-Jun-2026 16:02:54 Europe/Berlin] checkout.php: notification email failed — Failed opening required 'C:\xampp\htdocs\ifts\backend/PHPMailer/src/Exception.php' (include_path='C:\xampp\php\PEAR')
+[20-Jun-2026 16:02:55 Europe/Berlin] PHP Warning:  require_once(C:\xampp\htdocs\ifts\backend/PHPMailer/src/Exception.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ifts\backend\mailer.php on line 33
+[20-Jun-2026 16:02:55 Europe/Berlin] checkout.php: notification email failed — Failed opening required 'C:\xampp\htdocs\ifts\backend/PHPMailer/src/Exception.php' (include_path='C:\xampp\php\PEAR')
+[20-Jun-2026 16:02:55 Europe/Berlin] PHP Warning:  require_once(C:\xampp\htdocs\ifts\backend/PHPMailer/src/Exception.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ifts\backend\mailer.php on line 33
+[20-Jun-2026 16:02:55 Europe/Berlin] checkout.php: notification email failed — Failed opening required 'C:\xampp\htdocs\ifts\backend/PHPMailer/src/Exception.php' (include_path='C:\xampp\php\PEAR')
+[20-Jun-2026 16:02:55 Europe/Berlin] PHP Warning:  require_once(C:\xampp\htdocs\ifts\backend/PHPMailer/src/Exception.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ifts\backend\mailer.php on line 33
+[20-Jun-2026 16:02:55 Europe/Berlin] checkout.php: notification email failed — Failed opening required 'C:\xampp\htdocs\ifts\backend/PHPMailer/src/Exception.php' (include_path='C:\xampp\php\PEAR')
+[20-Jun-2026 16:02:56 Europe/Berlin] PHP Warning:  require_once(C:\xampp\htdocs\ifts\backend/PHPMailer/src/Exception.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ifts\backend\mailer.php on line 33
+[20-Jun-2026 16:02:56 Europe/Berlin] checkout.php: notification email failed — Failed opening required 'C:\xampp\htdocs\ifts\backend/PHPMailer/src/Exception.php' (include_path='C:\xampp\php\PEAR')
+[20-Jun-2026 16:02:56 Europe/Berlin] PHP Warning:  require_once(C:\xampp\htdocs\ifts\backend/PHPMailer/src/Exception.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ifts\backend\mailer.php on line 33
+[20-Jun-2026 16:02:56 Europe/Berlin] checkout.php: notification email failed — Failed opening required 'C:\xampp\htdocs\ifts\backend/PHPMailer/src/Exception.php' (include_path='C:\xampp\php\PEAR')
+[20-Jun-2026 16:18:40 Europe/Berlin] checkout.php hit — METHOD=GET | save_order=NOT SET | POST keys=
+[20-Jun-2026 16:19:03 Europe/Berlin] checkout.php hit — METHOD=POST | save_order=1 | POST keys=save_order,customer_name,whatsapp,email,city,transaction_id,paid_amount,payment_date,order_id,services,referral_code
+[20-Jun-2026 16:19:03 Europe/Berlin] PHP Warning:  require_once(C:\xampp\htdocs\ifts\backend/PHPMailer/src/Exception.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ifts\backend\mailer.php on line 33
+[20-Jun-2026 16:19:03 Europe/Berlin] checkout.php: notification email failed — Failed opening required 'C:\xampp\htdocs\ifts\backend/PHPMailer/src/Exception.php' (include_path='C:\xampp\php\PEAR')
+[20-Jun-2026 22:50:57 Europe/Berlin] checkout.php hit — METHOD=GET | save_order=NOT SET | POST keys=
+[20-Jun-2026 22:51:18 Europe/Berlin] checkout.php hit — METHOD=POST | save_order=1 | POST keys=save_order,customer_name,whatsapp,email,city,transaction_id,paid_amount,payment_date,order_id,services,referral_code
+[20-Jun-2026 22:51:18 Europe/Berlin] PHP Warning:  require_once(C:\xampp\htdocs\ifts\backend/PHPMailer/src/Exception.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ifts\backend\mailer.php on line 33
+[20-Jun-2026 22:51:18 Europe/Berlin] checkout.php: notification email failed — Failed opening required 'C:\xampp\htdocs\ifts\backend/PHPMailer/src/Exception.php' (include_path='C:\xampp\php\PEAR')
+[20-Jun-2026 22:51:20 Europe/Berlin] checkout.php hit — METHOD=POST | save_order=1 | POST keys=save_order,customer_name,whatsapp,email,city,transaction_id,paid_amount,payment_date,order_id,services,referral_code
+[20-Jun-2026 22:51:20 Europe/Berlin] PHP Warning:  require_once(C:\xampp\htdocs\ifts\backend/PHPMailer/src/Exception.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ifts\backend\mailer.php on line 33
+[20-Jun-2026 22:51:20 Europe/Berlin] checkout.php: notification email failed — Failed opening required 'C:\xampp\htdocs\ifts\backend/PHPMailer/src/Exception.php' (include_path='C:\xampp\php\PEAR')
+[20-Jun-2026 22:51:47 Europe/Berlin] checkout.php hit — METHOD=GET | save_order=NOT SET | POST keys=
+[20-Jun-2026 22:52:12 Europe/Berlin] checkout.php hit — METHOD=POST | save_order=1 | POST keys=save_order,customer_name,whatsapp,email,city,transaction_id,paid_amount,payment_date,order_id,services,referral_code
+[20-Jun-2026 22:52:12 Europe/Berlin] PHP Warning:  require_once(C:\xampp\htdocs\ifts\backend/PHPMailer/src/Exception.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ifts\backend\mailer.php on line 33
+[20-Jun-2026 22:52:12 Europe/Berlin] checkout.php: notification email failed — Failed opening required 'C:\xampp\htdocs\ifts\backend/PHPMailer/src/Exception.php' (include_path='C:\xampp\php\PEAR')
+[20-Jun-2026 23:43:39 Europe/Berlin] checkout.php hit — METHOD=POST | save_order=1 | POST keys=save_order,customer_name,whatsapp,email,city,transaction_id,paid_amount,payment_date,order_id,services,referral_code
+[20-Jun-2026 23:43:39 Europe/Berlin] PHP Warning:  require_once(C:\xampp\htdocs\ifts\backend/PHPMailer/src/Exception.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ifts\backend\mailer.php on line 33
+[20-Jun-2026 23:43:39 Europe/Berlin] checkout.php: notification email failed — Failed opening required 'C:\xampp\htdocs\ifts\backend/PHPMailer/src/Exception.php' (include_path='C:\xampp\php\PEAR')
+[20-Jun-2026 23:44:02 Europe/Berlin] checkout.php hit — METHOD=POST | save_order=1 | POST keys=save_order,customer_name,whatsapp,email,city,transaction_id,paid_amount,payment_date,order_id,services,referral_code
+[20-Jun-2026 23:44:02 Europe/Berlin] PHP Warning:  require_once(C:\xampp\htdocs\ifts\backend/PHPMailer/src/Exception.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ifts\backend\mailer.php on line 33
+[20-Jun-2026 23:44:02 Europe/Berlin] checkout.php: notification email failed — Failed opening required 'C:\xampp\htdocs\ifts\backend/PHPMailer/src/Exception.php' (include_path='C:\xampp\php\PEAR')
+[20-Jun-2026 23:44:48 Europe/Berlin] checkout.php hit — METHOD=POST | save_order=1 | POST keys=save_order,customer_name,whatsapp,email,city,transaction_id,paid_amount,payment_date,order_id,services,referral_code
+[20-Jun-2026 23:44:48 Europe/Berlin] PHP Warning:  require_once(C:\xampp\htdocs\ifts\backend/PHPMailer/src/Exception.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ifts\backend\mailer.php on line 33
+[20-Jun-2026 23:44:48 Europe/Berlin] checkout.php: notification email failed — Failed opening required 'C:\xampp\htdocs\ifts\backend/PHPMailer/src/Exception.php' (include_path='C:\xampp\php\PEAR')
+[20-Jun-2026 23:51:43 Europe/Berlin] checkout.php hit — METHOD=GET | save_order=NOT SET | POST keys=
+[20-Jun-2026 23:52:03 Europe/Berlin] checkout.php hit — METHOD=GET | save_order=NOT SET | POST keys=
+[20-Jun-2026 23:52:19 Europe/Berlin] checkout.php hit — METHOD=GET | save_order=NOT SET | POST keys=
+[20-Jun-2026 23:52:40 Europe/Berlin] checkout.php hit — METHOD=POST | save_order=1 | POST keys=save_order,customer_name,whatsapp,email,city,transaction_id,paid_amount,payment_date,order_id,services,referral_code
+[20-Jun-2026 23:52:40 Europe/Berlin] PHP Warning:  require_once(C:\xampp\htdocs\ifts\backend/PHPMailer/src/Exception.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ifts\backend\mailer.php on line 33
+[20-Jun-2026 23:52:40 Europe/Berlin] checkout.php: notification email failed — Failed opening required 'C:\xampp\htdocs\ifts\backend/PHPMailer/src/Exception.php' (include_path='C:\xampp\php\PEAR')
+[21-Jun-2026 00:09:40 Europe/Berlin] checkout.php hit — METHOD=GET | save_order=NOT SET | POST keys=
+[21-Jun-2026 00:09:57 Europe/Berlin] checkout.php hit — METHOD=GET | save_order=NOT SET | POST keys=
+[21-Jun-2026 00:10:16 Europe/Berlin] checkout.php hit — METHOD=POST | save_order=1 | POST keys=save_order,customer_name,whatsapp,email,city,transaction_id,paid_amount,payment_date,order_id,services,referral_code
+[21-Jun-2026 00:10:16 Europe/Berlin] PHP Warning:  require_once(C:\xampp\htdocs\ifts\backend/PHPMailer/src/Exception.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ifts\backend\mailer.php on line 33
+[21-Jun-2026 00:10:16 Europe/Berlin] checkout.php: notification email failed — Failed opening required 'C:\xampp\htdocs\ifts\backend/PHPMailer/src/Exception.php' (include_path='C:\xampp\php\PEAR')
+[21-Jun-2026 00:18:02 Europe/Berlin] checkout.php hit — METHOD=GET | save_order=NOT SET | POST keys=
+[21-Jun-2026 00:18:32 Europe/Berlin] checkout.php hit — METHOD=POST | save_order=1 | POST keys=save_order,customer_name,whatsapp,email,city,transaction_id,paid_amount,payment_date,order_id,services,referral_code
+[21-Jun-2026 00:22:23 Europe/Berlin] checkout.php hit — METHOD=GET | save_order=NOT SET | POST keys=
+[21-Jun-2026 00:22:44 Europe/Berlin] checkout.php hit — METHOD=POST | save_order=1 | POST keys=save_order,customer_name,whatsapp,email,city,transaction_id,paid_amount,payment_date,order_id,services,referral_code
+[21-Jun-2026 00:22:44 Europe/Berlin] PHP Warning:  require_once(C:\xampp\htdocs\ifts/backend/mailer.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ifts\checkout.php on line 151
+[21-Jun-2026 00:22:44 Europe/Berlin] checkout.php: notification email failed — Failed opening required 'C:\xampp\htdocs\ifts/backend/mailer.php' (include_path='C:\xampp\php\PEAR')
+[21-Jun-2026 00:23:58 Europe/Berlin] checkout.php hit — METHOD=POST | save_order=1 | POST keys=save_order,customer_name,whatsapp,email,city,transaction_id,paid_amount,payment_date,order_id,services,referral_code
+[21-Jun-2026 00:41:23 Europe/Berlin] checkout.php hit — METHOD=GET | save_order=NOT SET | POST keys=
+[21-Jun-2026 00:41:44 Europe/Berlin] checkout.php hit — METHOD=POST | save_order=1 | POST keys=save_order,customer_name,whatsapp,email,city,transaction_id,paid_amount,payment_date,order_id,services,referral_code
+[21-Jun-2026 00:50:24 Europe/Berlin] checkout.php hit — METHOD=GET | save_order=NOT SET | POST keys=
+[21-Jun-2026 00:50:46 Europe/Berlin] checkout.php hit — METHOD=POST | save_order=1 | POST keys=save_order,customer_name,whatsapp,email,city,transaction_id,paid_amount,payment_date,order_id,services,referral_code
+[23-Jun-2026 10:53:00 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\ifts\checkout.php:16
+Stack trace:
+#0 C:\xampp\htdocs\ifts\checkout.php(16): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'ifts_checkout_s...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ifts\checkout.php on line 16
+[23-Jun-2026 10:53:13 Europe/Berlin] checkout.php hit — METHOD=GET | save_order=NOT SET | POST keys=
+[23-Jun-2026 10:54:17 Europe/Berlin] checkout.php hit — METHOD=GET | save_order=NOT SET | POST keys=
+[23-Jun-2026 14:43:44 Europe/Berlin] checkout.php hit — METHOD=GET | save_order=NOT SET | POST keys=
+[23-Jun-2026 14:53:57 Europe/Berlin] checkout.php hit — METHOD=GET | save_order=NOT SET | POST keys=
+[23-Jun-2026 14:54:11 Europe/Berlin] checkout.php hit — METHOD=GET | save_order=NOT SET | POST keys=
+[23-Jun-2026 14:54:49 Europe/Berlin] checkout.php hit — METHOD=POST | save_order=1 | POST keys=save_order,customer_name,whatsapp,email,city,transaction_id,paid_amount,payment_date,order_id,services,referral_code
+[23-Jun-2026 15:04:55 Europe/Berlin] checkout.php hit — METHOD=GET | save_order=NOT SET | POST keys=
+[23-Jun-2026 15:08:13 Europe/Berlin] checkout.php hit — METHOD=POST | save_order=1 | POST keys=save_order,customer_name,whatsapp,email,city,transaction_id,paid_amount,payment_date,order_id,services,referral_code
+[23-Jun-2026 15:09:23 Europe/Berlin] checkout.php hit — METHOD=GET | save_order=NOT SET | POST keys=
+[23-Jun-2026 15:11:40 Europe/Berlin] checkout.php hit — METHOD=GET | save_order=NOT SET | POST keys=
+[23-Jun-2026 15:11:59 Europe/Berlin] checkout.php hit — METHOD=POST | save_order=1 | POST keys=save_order,customer_name,whatsapp,email,city,transaction_id,paid_amount,payment_date,order_id,services,referral_code
+[23-Jun-2026 15:12:36 Europe/Berlin] checkout.php hit — METHOD=GET | save_order=NOT SET | POST keys=
+[23-Jun-2026 15:13:01 Europe/Berlin] checkout.php hit — METHOD=GET | save_order=NOT SET | POST keys=
+[23-Jun-2026 20:15:12 Europe/Berlin] checkout.php hit — METHOD=GET | save_order=NOT SET | POST keys=
+[23-Jun-2026 20:16:01 Europe/Berlin] checkout.php hit — METHOD=POST | save_order=1 | POST keys=save_order,customer_name,whatsapp,email,city,transaction_id,paid_amount,payment_date,order_id,services,referral_code
+[24-Jun-2026 04:01:08 Europe/Berlin] checkout.php hit — METHOD=GET | save_order=NOT SET | POST keys=
+[24-Jun-2026 04:01:57 Europe/Berlin] checkout.php hit — METHOD=POST | save_order=1 | POST keys=save_order,customer_name,whatsapp,email,city,transaction_id,paid_amount,payment_date,order_id,services,referral_code
+[27-Jun-2026 21:36:39 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown database 'ifts_checkout_system' in C:\xampp\htdocs\ifts\checkout.php:13
+Stack trace:
+#0 C:\xampp\htdocs\ifts\checkout.php(13): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'ifts_checkout_s...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ifts\checkout.php on line 13
+[27-Jun-2026 21:49:02 Europe/Berlin] checkout.php hit — METHOD=GET | save_order=NOT SET | POST keys=
+[27-Jun-2026 21:50:46 Europe/Berlin] checkout.php hit — METHOD=POST | save_order=1 | POST keys=save_order,customer_name,whatsapp,email,city,transaction_id,paid_amount,payment_date,order_id,services,referral_code
+[10-Jul-2026 14:32:46 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'u906769102_IFTS'@'localhost' (using password: YES) in C:\xampp\htdocs\ifts\checkout.php:14
+Stack trace:
+#0 C:\xampp\htdocs\ifts\checkout.php(14): mysqli->__construct('localhost', 'u906769102_IFTS', Object(SensitiveParameterValue), 'u906769102_IFTS')
+#1 {main}
+  thrown in C:\xampp\htdocs\ifts\checkout.php on line 14
